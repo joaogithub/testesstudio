@@ -3,7 +3,7 @@
     android:id="@+id/scrollViewLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/red" >
+    android:background="@color/red">
 
     <RelativeLayout
         android:id="@+id/drawer_layout"
@@ -11,16 +11,16 @@
         android:layout_height="wrap_content"
         android:background="@android:color/white"
         android:gravity="center"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <!-- The main content view -->
 
         <fragment
             android:id="@+id/main_list"
+            class="com.testes.android.MainFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
-            class="com.testes.android.MainFragment" />
+            android:layout_alignParentTop="true" />
 
         <com.testes.customview.CircleView
             android:id="@+id/circleView"

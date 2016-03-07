@@ -3,7 +3,6 @@ package com.testes.activity;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.Switch;
@@ -13,43 +12,40 @@ import android.widget.ToggleButton;
 import com.testes.android.R;
 
 
-public class ToggleButtonActivity extends Activity{
+public class ToggleButtonActivity extends Activity {
 
-		protected static final String TAG = "ToggleButtonActivity";
-		private CompoundButton compound;
+    protected static final String TAG = "ToggleButtonActivity";
+    private CompoundButton compound;
 
-		@Override
-		protected void onCreate(Bundle savedInstanceState) {
-			super.onCreate(savedInstanceState);
-			setContentView(R.layout.graphics_view);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.graphics_view);
 
-			ToggleButton toggleButton = (ToggleButton) findViewById(R.id.toggle_btn_sunday);
-			final TextView num = (TextView) findViewById(R.id.num);
-			
-			if(android.os.Build.VERSION.SDK_INT>13)
-				compound = (Switch) findViewById(R.id.mySwitch);
-			else
-				compound = (ToggleButton) findViewById(R.id.mySwitch);
-			
-			
-			
-			
-			toggleButton.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-				
-				@Override
-				public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-					if(isChecked){
-						Log.i(TAG, "Button Value: " + Integer.toString(12));
-						num.setText( Integer.toString(12));
-					}
-					else{
-						 // The toggle is disabled
-                       Log.i(TAG, "Is this called?");
-					}
-					 Log.i(TAG, "Check changed listener called");
-				}
-			});
-			
-		}
+        ToggleButton toggleButton = (ToggleButton) findViewById(R.id.toggle_btn_sunday);
+        final TextView numTxt = (TextView) findViewById(R.id.num);
+
+        if (android.os.Build.VERSION.SDK_INT > 13)
+            compound = (Switch) findViewById(R.id.mySwitch);
+        else
+            compound = (ToggleButton) findViewById(R.id.mySwitch);
+
+
+        toggleButton.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    Log.i(TAG, "Button Value: " + Integer.toString(12));
+                    numTxt.setText(Integer.toString(12));
+                } else {
+                    // The toggle is disabled
+                    Log.i(TAG, "Is this called?");
+                }
+                Log.i(TAG, "Check changed listener called");
+            }
+        });
+
+    }
 
 }

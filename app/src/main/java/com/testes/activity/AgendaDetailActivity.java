@@ -65,7 +65,6 @@ public class AgendaDetailActivity extends Activity implements TextToSpeech.OnIni
 
                 tts.speak(commands.get(random_command), TextToSpeech.QUEUE_FLUSH, null);
 
-
                 Intent i = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
                 i.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, "it-IT");
 
