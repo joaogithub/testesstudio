@@ -96,9 +96,12 @@ import com.testes.receiver.WifiScanReceiver;
 public class FirstActivity extends ActionBarActivity implements ActionMode.Callback, NavigationDrawerCallbacks {
     TextView text1;
     EditText linkEditText, e2;
-    Button dialogButton, sub, circleTestButton, centerButton, imageButton, picassoButton, intentsButton, connectbutton, animationActivityButton, mainActivityButton, secondButton, scrollViewButton, tableLayoutButton, tabHostButton;
-    Button listViewButton, layoutButton, horizontalListViewButton, downloadButton, createTemFiles, webViewButton, videoViewButton, viewPagerButton, spinnerButton, alarmsButton, jsonButton, slidingMenuButton;
-    Button drawerButton, drawerLayoutButton, cardViewButton, volleyButton, textAnimationButton, adButton, fragmentsButton, sensorButton, toggleButtonActivity, drawableButton, ttSpeechButton, canvasButton, pickerButton, seekBarButton, editTextButton;
+    Button dialogButton, sub, circleTestButton, centerButton, imageButton, picassoButton, intentsButton,
+            connectbutton, animationActivityButton, mainActivityButton, secondButton, scrollViewButton, tableLayoutButton, tabHostButton;
+    Button listViewButton, layoutButton, horizontalListViewButton, downloadButton, createTemFiles,
+            webViewButton, videoViewButton, viewPagerButton, spinnerButton, alarmsButton, jsonButton, slidingMenuButton;
+    Button drawerButton, drawerLayoutButton, cardViewButton, volleyButton, textAnimationButton,
+            adButton, fragmentsButton, sensorButton, toggleButtonActivity, drawableButton, ttSpeechButton, canvasButton, pickerButton, seekBarButton, editTextButton;
     Context c = this;
     ImageButton facebookLoginButton;
     ScrollView scrollViewLayout;
@@ -183,6 +186,10 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
         tabHostButton = (Button) findViewById(R.id.tabsHostButton);
         listViewButton = (Button) findViewById(R.id.listViewButton);
 
+        Button toolBarButton = (Button) findViewById(R.id.toolBarBtn);
+
+
+
         Log.i(TAG, "onCreate() first");
 
         int unicode = 0x1F60A;
@@ -250,6 +257,14 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
             public void onClick(View v) {
 
                 startActivity(new Intent(FirstActivity.this, CardActivity.class));
+            }
+        });
+
+
+        toolBarButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(FirstActivity.this, ToolBarActivity.class));
             }
         });
 
