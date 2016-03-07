@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp" >
+
+    <!-- The main content view -->
+
+    <Spinner
+        android:id="@+id/equipment_selector"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/btn_dropdown"
+        android:dropDownVerticalOffset="@dimen/form_screen_equipment_combo_box_dropdown_vertical_offset"
+        android:dropDownWidth="match_parent"
+        android:popupBackground="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown" />
+
+    <Spinner
+        android:id="@+id/spinner_region"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center" />
+
+    <Spinner
+        android:id="@+id/spinner_district"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp" />
+
+</LinearLayout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="16dp" >
+
+    <ToggleButton
+        android:id="@+id/toggle_btn_sunday"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:textOff="SUN"
+        android:textOn="SUN" />
+
+    <TextView
+        android:id="@+id/num"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="Quantity" />
+
+    <Switch
+        android:id="@+id/mySwitch"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:textColor="@android:color/white"
+        android:textOff="M"
+        android:textOn="K"
+        android:thumb="@color/green" />
+
+</LinearLayout>
