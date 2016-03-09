@@ -101,7 +101,8 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
     Button listViewButton, layoutButton, horizontalListViewButton, downloadButton, createTemFiles,
             webViewButton, videoViewButton, viewPagerButton, spinnerButton, alarmsButton, jsonButton, slidingMenuButton;
     Button drawerButton, drawerLayoutButton, cardViewButton, volleyButton, textAnimationButton,
-            adButton, fragmentsButton, sensorButton, toggleButtonActivity, drawableButton, ttSpeechButton, canvasButton, pickerButton, seekBarButton, editTextButton;
+            adButton, fragmentsButton, sensorButton, toggleButtonActivity, drawableButton, ttSpeechButton,
+            canvasButton, pickerButton, seekBarButton, editTextButton, recyclerButton;
     Context c = this;
     ImageButton facebookLoginButton;
     ScrollView scrollViewLayout;
@@ -149,6 +150,7 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
         toggleButtonActivity = (Button) findViewById(R.id.toggleButton);
         adButton = (Button) findViewById(R.id.adButton);
         centerButton = (Button) findViewById(R.id.centerButton);
+        recyclerButton = (Button) findViewById(R.id.recyclerBtn);
         connectbutton = (Button) findViewById(R.id.connect);
         picassoButton = (Button) findViewById(R.id.picassoButton);
         jsonButton = (Button) findViewById(R.id.jsonButton);
@@ -167,7 +169,7 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
         ttSpeechButton = (Button) findViewById(R.id.ttSpeechButton);
         downloadButton = (Button) findViewById(R.id.downloadButton);
         drawerLayoutButton = (Button) findViewById(R.id.drawerLayoutButton);
-        mainActivityButton = (Button) findViewById(R.id.mainButtton);
+        mainActivityButton = (Button) findViewById(R.id.mainButton);
         imageView = (ImageView) findViewById(R.id.imageViewFirst);
         scrollViewLayout = (ScrollView) findViewById(R.id.scrollViewLayout);
         fragmentsButton = (Button) findViewById(R.id.fragmentsInfoButton);
@@ -187,8 +189,6 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
         listViewButton = (Button) findViewById(R.id.listViewButton);
 
         Button toolBarButton = (Button) findViewById(R.id.toolBarBtn);
-
-
 
         Log.i(TAG, "onCreate() first");
 
@@ -541,6 +541,13 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
             public void onClick(View v) {
                 startActivity(new Intent(FirstActivity.this, FragmentsActivity.class));
 
+            }
+        });
+
+        recyclerButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(FirstActivity.this, RecyclerActivity.class));
             }
         });
 
@@ -1158,7 +1165,7 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
 
         @Override
         protected void onPreExecute() {
-            //			if (showDialog){
+            			if (showDialog){
             //				loadingDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             //				loadingDialog.setContentView(R.layout.layout_load);
             //				loadingDialog.setOnCancelListener(new OnCancelListener() {
@@ -1172,10 +1179,10 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
             //				loadingDialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
             //				//_loadingDialog.getWindow().setWindowAnimations(R.style.dialog_animation_fade);
             //				loadingDialog.show();
-            //			}
-            //			if(showError){
-            //				Toast.makeText(context, "errorConnectingToServer", Toast.LENGTH_LONG).show();
-            //			}
+            			}
+            			if(showError){
+            				Toast.makeText(context, "errorConnectingToServer", Toast.LENGTH_LONG).show();
+            			}
         }
 
         @Override
@@ -1199,8 +1206,6 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
             //			}
             //
 
-
-            //
             //			Ion.with(FirstActivity.this).load("http://---------").setMultipartParameter("IUser_ID=", "126").setMultipartFile("", new File(strFilePath)).setMultipartParameter("User_ID=", "amody@gmail.com").setMultipartParameter("FileTitle", strFileTitle).setMultipartParameter("DT", strDocumentType).asString().setCallback(new FutureCallback<String>() {
             //				@Override
             //				public void onCompleted(Exception e, String result) {
@@ -1311,21 +1316,21 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
         protected void onPostExecute(Bitmap result) {
             super.onPostExecute(result);
 
-            //			// User canceled
-            //			if (showDialog){
-            //				if (!loadingDialog.isShowing()){
+            			// User canceled
+            			if (showDialog){
+            				if (!loadingDialog.isShowing()){
             //					System.out.println("cancelou o parsing");
             //					return;
-            //				}
-            //			}
+            				}
+            			}
 
             //			imageView.setImageBitmap(result);
             // Dismiss loading dialog
-            //			if (showDialog){
-            //				if (loadingDialog.isShowing()) {
+            			if (showDialog){
+            				if (loadingDialog.isShowing()) {
             //					loadingDialog.dismiss();
-            //				}
-            //			}
+            				}
+            			}
 
 
         }

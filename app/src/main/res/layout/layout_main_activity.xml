@@ -50,6 +50,7 @@
             android:id="@+id/cardViewButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
             android:layout_below="@+id/myEditText"
             android:layout_centerHorizontal="true"
             android:text="CardView" />
@@ -58,6 +59,7 @@
             android:id="@+id/add"
             android:layout_width="100dp"
             android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
             android:layout_below="@+id/cardViewButton"
             android:layout_centerHorizontal="true"
             android:text="Dialog" />
@@ -66,7 +68,7 @@
             android:id="@+id/downloadButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/add"
+            android:layout_below="@id/cardViewButton"
             android:layout_centerHorizontal="true"
             android:text="Downloads" />
 
@@ -74,15 +76,17 @@
             android:id="@+id/ttSpeechButton"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:layout_below="@+id/mainButtton"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/mainButton"
             android:layout_centerHorizontal="true"
             android:text="Text To Speech" />
 
         <Button
-            android:id="@+id/mainButtton"
-            android:layout_width="190dp"
+            android:id="@+id/mainButton"
+            android:layout_width="130dp"
             android:layout_height="40dp"
-            android:layout_below="@+id/downloadButton"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/cardViewButton"
             android:layout_centerHorizontal="true"
             android:text="MainActivity" />
 
@@ -90,21 +94,22 @@
             android:id="@+id/layoutButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/ttSpeechButton"
+            android:layout_below="@+id/mainButton"
             android:layout_centerHorizontal="true"
-            android:text="Layout activity" />
+            android:text="Include" />
 
         <Button
             android:id="@+id/spinnerButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/layoutButton"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/mainButton"
             android:layout_centerHorizontal="true"
-            android:text="Spinner activity" />
+            android:text="Spinners" />
 
         <ImageButton
             android:id="@+id/facebokLoginButton"
-            android:layout_width="200dp"
+            android:layout_width="100dp"
             android:layout_height="40dp"
             android:layout_below="@+id/spinnerButton"
             android:layout_centerHorizontal="true"
@@ -116,21 +121,23 @@
             android:id="@+id/jsonButton"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:layout_below="@+id/facebokLoginButton"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/spinnerButton"
             android:layout_centerHorizontal="true"
             android:text="JsonParsing" />
 
         <Button
             android:id="@+id/seekBarButton"
-            android:layout_width="190dp"
+            android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:layout_below="@+id/jsonButton"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/spinnerButton"
             android:layout_centerHorizontal="true"
             android:text="SeekBar" />
 
         <Button
             android:id="@+id/sensorButton"
-            android:layout_width="190dp"
+            android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_below="@+id/seekBarButton"
             android:layout_centerHorizontal="true"
@@ -142,13 +149,14 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/sensorButton"
             android:layout_centerHorizontal="true"
-            android:text="Drawer Layout Test" />
+            android:text="DrawerLayout" />
 
         <Button
             android:id="@+id/animationButton"
-            android:layout_width="190dp"
+            android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:layout_below="@+id/drawerLayoutButton"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/seekBarButton"
             android:layout_centerHorizontal="true"
             android:text="Animation" />
 
@@ -156,19 +164,32 @@
             android:id="@+id/toolBarBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/seekBarButton"
+            android:layout_centerHorizontal="true"
             android:text="Toolbar" />
+
+        <Button
+            android:id="@+id/recyclerBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/toolBarBtn"
+            android:layout_centerHorizontal="true"
+            android:text="Recycler" />
 
         <Button
             android:id="@+id/textAnimationButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/animationButton"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/sensorButton"
             android:layout_centerHorizontal="true"
-            android:text="Text Animation" />
+            android:text="Text Anim" />
 
         <Button
             android:id="@+id/drawableButton"
-            android:layout_width="190dp"
+            android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_below="@+id/textAnimationButton"
             android:layout_centerHorizontal="true"
@@ -178,15 +199,17 @@
             android:id="@+id/intentsButton"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:layout_below="@+id/drawableButton"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/textAnimationButton"
             android:layout_centerHorizontal="true"
             android:text="Intents" />
 
         <Button
             android:id="@+id/alarmManagerButton"
             android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:layout_below="@+id/intentsButton"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/textAnimationButton"
             android:layout_centerHorizontal="true"
             android:text="Alarm Manager" />
 
@@ -236,7 +259,7 @@
 
         <Button
             android:id="@+id/pickersButton"
-            android:layout_width="190dp"
+            android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_below="@+id/createTempFilesButton"
             android:layout_centerHorizontal="true"
@@ -245,9 +268,10 @@
 
         <Button
             android:id="@+id/editTextButton"
-            android:layout_width="190dp"
+            android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:layout_below="@+id/pickersButton"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/createTempFilesButton"
             android:layout_centerHorizontal="true"
             android:text="EditText"
             android:visibility="visible" />
@@ -258,12 +282,11 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/editTextButton"
             android:layout_centerHorizontal="true"
-            android:text="Horizontal ListView"
-            android:visibility="visible" />
+            android:text="Horizontal ListView" />
 
         <Button
             android:id="@+id/listViewButton"
-            android:layout_width="190dp"
+            android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_below="@+id/horizontalListViewButton"
             android:layout_centerHorizontal="true"
@@ -272,26 +295,27 @@
 
         <Button
             android:id="@+id/tabsHostButton"
-            android:layout_width="190dp"
+            android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_below="@+id/listViewButton"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
             android:text="TabHost" />
 
         <Button
             android:id="@+id/fragmentsInfoButton"
-            android:layout_width="190dp"
+            android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:layout_below="@+id/tabsHostButton"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/listViewButton"
             android:layout_centerHorizontal="true"
             android:text="Fragments" />
 
         <Button
             android:id="@+id/canvasButton"
-            android:layout_width="190dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/fragmentsInfoButton"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/listViewButton"
             android:layout_centerHorizontal="true"
             android:text="Canvas" />
 
@@ -305,17 +329,19 @@
 
         <Button
             android:id="@+id/scrollViewButton"
-            android:layout_width="190dp"
+            android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:layout_below="@+id/videoViewButton"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/canvasButton"
             android:layout_centerHorizontal="true"
             android:text="Scroll" />
 
         <Button
             android:id="@+id/tableButton"
-            android:layout_width="190dp"
+            android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:layout_below="@+id/scrollViewButton"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/canvasButton"
             android:layout_centerHorizontal="true"
             android:text="TableLayout" />
 
@@ -337,7 +363,7 @@
 
         <Button
             android:id="@+id/fullImage"
-            android:layout_width="200dp"
+            android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_below="@+id/testViewButton"
             android:layout_centerHorizontal="true"
@@ -346,7 +372,7 @@
 
         <Button
             android:id="@+id/connect"
-            android:layout_width="250dp"
+            android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_below="@+id/fullImage"
             android:layout_centerHorizontal="true"
@@ -355,7 +381,7 @@
 
         <Button
             android:id="@+id/picassoButton"
-            android:layout_width="230dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/imageButton"
             android:layout_centerHorizontal="true"

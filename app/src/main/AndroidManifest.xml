@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.testes.android"
     android:versionCode="1"
     android:versionName="1.0">
@@ -86,6 +87,7 @@
         <activity android:name="com.testes.activity.DownloadActivity" />
         <activity android:name="com.testes.activity.VideoViewActivity" />
         <activity android:name="com.testes.activity.AgendaDetailActivity" />
+        <activity android:name="com.testes.activity.RecyclerActivity" />
         <activity android:name="com.testes.activity.ImageActivity" />
         <activity android:name="com.testes.activity.CardActivity" />
         <activity android:name="com.testes.activity.TabHostActivity" />

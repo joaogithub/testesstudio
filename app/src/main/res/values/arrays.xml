@@ -12,4 +12,9 @@
         <item>#FF00FF00</item>
         <item>#FF0000FF</item>
     </array>
+    <string-array name="included">
+        <item>Item 1</item>
+        <item>Item 2</item>
+        <item>Item 3</item>
+    </string-array>
 </resources>
