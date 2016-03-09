@@ -7,6 +7,7 @@ import android.graphics.drawable.StateListDrawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.AdapterView;
@@ -239,8 +240,14 @@ public class SpinnerActivity extends ActionBarActivity implements android.suppor
 
 	}
 
-	
-	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		if(item.getItemId() == android.R.id.home){
+			super.onBackPressed();
+		}
+		return super.onOptionsItemSelected(item);
+	}
+
 	@Override
 	public boolean onNavigationItemSelected(int arg0, long arg1) {
 		return false;

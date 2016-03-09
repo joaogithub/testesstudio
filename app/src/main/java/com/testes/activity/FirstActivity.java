@@ -1351,11 +1351,11 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
 
-        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            setContentView(R.layout.rating_layout);
-        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
-            setContentView(R.layout.layout_main_activity);
-        }
+//        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+//            setContentView(R.layout.rating_layout);
+//        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
+//            setContentView(R.layout.layout_main_activity);
+//        }
     }
 
     private EditText showEditAlert(DialogInterface.OnClickListener listener) {

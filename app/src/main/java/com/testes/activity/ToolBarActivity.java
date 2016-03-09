@@ -3,11 +3,16 @@ package com.testes.activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.testes.adapter.Adap;
 import com.testes.android.R;
 import com.testes.data.Bean;
@@ -20,7 +25,7 @@ public class ToolBarActivity extends AppCompatActivity {
     ArrayList<String> altype;
     Adap ad_names;
     ArrayAdapter<String> ad;
-    //MaterialSearchView searchview;
+    MaterialSearchView searchview;
     Toolbar toolbar;
     android.widget.Filter filter;
 
@@ -33,7 +38,7 @@ public class ToolBarActivity extends AppCompatActivity {
         //setSupportActionBar(toolbar);
         //  toolbar.setNavigationIcon(R.drawable.back_arrow_white);
 
-        //searchview = (MaterialSearchView) findViewById(R.id.searchview);
+        searchview = (MaterialSearchView) findViewById(R.id.searchview);
 
         al_names = new ArrayList<>();
    /* altype = new ArrayList<>();
@@ -66,53 +71,53 @@ public class ToolBarActivity extends AppCompatActivity {
         lv_listname.setTextFilterEnabled(false);
         //   filter = ad_names.getFilter();
         //ad_names.notifyDataSetChanged();
-    /*setupSearchView();*/
+        setupSearchView();
 
-//        searchview.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
-//            @Override
-//            public void onSearchViewShown() {
-//                searchview.setVisibility(View.VISIBLE);
-//                Toast.makeText(getApplicationContext(), "opened ", Toast.LENGTH_LONG).show();
-//                toolbar.setVisibility(View.GONE);
-//            }
-//
-//            @Override
-//            public void onSearchViewClosed() {
-//                //  lv_listname.clearTextFilter();
-//
-//                Toast.makeText(getApplicationContext(), "closed ", Toast.LENGTH_LONG).show();
-//                toolbar.setVisibility(View.VISIBLE);
-//
-//            }
-//        });
-//
-//
-//        searchview.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String query) {
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String newText) {
-//                if (TextUtils.isEmpty(newText)) {
-//                    lv_listname.clearTextFilter();
-//                } else {
-//                    // lv_listname.setFilterText(newText);
-//                    ad_names.getFilter().filter(newText);
-//                    //filter.filter(newText);
-//                }
-//                return true;
-//            }
-//        });
-//        lv_listname.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Toast.makeText(getApplicationContext(), "you clicked on " + al_names.get(position), Toast.LENGTH_LONG).show();
-//            }
-//        });
-//        // searchview.setSubmitButtonEnabled(true);
-//        searchview.setHint("Search Containers");
+        searchview.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
+            @Override
+            public void onSearchViewShown() {
+                searchview.setVisibility(View.VISIBLE);
+                Toast.makeText(getApplicationContext(), "opened ", Toast.LENGTH_LONG).show();
+                toolbar.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onSearchViewClosed() {
+                //  lv_listname.clearTextFilter();
+
+                Toast.makeText(getApplicationContext(), "closed ", Toast.LENGTH_LONG).show();
+                toolbar.setVisibility(View.VISIBLE);
+
+            }
+        });
+
+
+        searchview.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                if (TextUtils.isEmpty(newText)) {
+                    lv_listname.clearTextFilter();
+                } else {
+                    // lv_listname.setFilterText(newText);
+                    ad_names.getFilter().filter(newText);
+                    //filter.filter(newText);
+                }
+                return true;
+            }
+        });
+        lv_listname.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(), "you clicked on " + al_names.get(position), Toast.LENGTH_LONG).show();
+            }
+        });
+        // searchview.setSubmitButtonEnabled(true);
+        searchview.setHint("Search Containers");
     }
 
     private void setupSearchView() {
