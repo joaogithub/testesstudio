@@ -1,9 +1,5 @@
 package com.testes.activity;
 
-import com.squareup.picasso.Picasso;
-import com.testes.android.R;
-
-import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -15,6 +11,9 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ImageView;
+
+import com.squareup.picasso.Picasso;
+import com.testes.android.R;
 
 public class PicassoActivity extends ActionBarActivity{
 
@@ -29,7 +28,6 @@ public class PicassoActivity extends ActionBarActivity{
 
 		Picasso picasso;
 
-
 		imageView = (ImageView) findViewById(R.id.starterPic);
 
 		//		decode bitmap to smaller dimensions
@@ -38,7 +36,6 @@ public class PicassoActivity extends ActionBarActivity{
 		//		imageView.setImageDrawable(getResources().getDrawable(R.drawable.hugeimg));
 	}
 
-	
 	public static Bitmap decodeSampledBitmapFromResource(Resources res, int resId,
 			int reqWidth, int reqHeight) {
 
@@ -99,7 +96,7 @@ public class PicassoActivity extends ActionBarActivity{
 				// navigate up to the logical parent activity.
 				upIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				NavUtils.navigateUpTo(this, upIntent);
-				Log.v("recreate activity", "shouldUpRecreateTask = false");
+				Log.v(getClass().getSimpleName(), "shouldUpRecreateTask = false");
 
 			}
 			return true;

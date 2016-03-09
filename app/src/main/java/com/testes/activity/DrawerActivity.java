@@ -1,7 +1,6 @@
 package com.testes.activity;
 
 import android.os.Bundle;
-import android.support.design.internal.NavigationMenuItemView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
@@ -40,7 +39,7 @@ public class DrawerActivity extends ActionBarActivity{
 		//		usersLinear.setBackgroundResource(R.drawable.border);
 		usersLinear.addView(userRelative);
 
-		NavigationMenuItemView view;
+		//NavigationMenuItemView view;
 	}
 
 

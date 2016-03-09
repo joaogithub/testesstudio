@@ -1,16 +1,9 @@
 package com.testes.activity;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Hashtable;
-import com.testes.android.R;
-import com.testes.android.R.id;
-import com.testes.android.R.layout;
 import android.annotation.SuppressLint;
-import android.app.ActionBar.OnNavigationListener;
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.drawable.StateListDrawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
@@ -23,9 +16,16 @@ import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
+import com.testes.android.R;
+import com.testes.widgets.CustomSpinner;
+
+import java.util.ArrayList;
+import java.util.Hashtable;
+
 public class SpinnerActivity extends ActionBarActivity implements android.support.v7.app.ActionBar.OnNavigationListener{
 
-	Spinner regionSpinner, districtSpinner, equipmentSelectorSpinner;
+	CustomSpinner regionSpinner;
+	Spinner districtSpinner, equipmentSelectorSpinner;
 	int selectionCount=0;
 	Hashtable<Integer,ArrayList<String>> spinnerValues;
 	private SpinnerAdapter mSpinnerAdapter;
@@ -78,8 +78,61 @@ public class SpinnerActivity extends ActionBarActivity implements android.suppor
 		spinnerValues.put(1, itasyDistricts);
 		spinnerValues.put(2, thirdRegionDistricts);
 
-		regionSpinner = (Spinner) findViewById(R.id.spinner_region);
+		regionSpinner = (CustomSpinner) findViewById(R.id.spinner_region);
 		if(regionSpinner != null) {
+
+			StateListDrawable d = (StateListDrawable) regionSpinner.getBackground();
+
+//			if (d != null) {
+//				LayerDrawable y = ((LayerDrawable) d.getCurrent());
+//				for (int i = 0; i < y.getNumberOfLayers(); i++) {
+//					if (y.getDrawable(i) instanceof BitmapDrawable) {
+//						BitmapDrawable x = (BitmapDrawable) y.getDrawable(i);
+//						//Bitmap arrowBitmap = x.getBitmap();
+//
+//						//Bitmap mutableBitmap = arrowBitmap.copy(Bitmap.Config.ARGB_8888, true);
+//						//Bitmap colorBitmap = Bitmap.createBitmap(mutableBitmap, 0, 0, mutableBitmap.getWidth(),mutableBitmap.getHeight());
+//						//colorBitmap.eraseColor(Color.RED);
+//
+//						Drawable xx = DrawableCompat.wrap(x);
+//						//DrawableCompat.setTintMode(xx, PorterDuff.Mode.SRC_ATOP);
+//						DrawableCompat.setTint(xx, ContextCompat.getColor(this, R.color.blue));
+////						Drawable d = new BitmapDrawable(getResources(), colorBitmap);
+////						y.setDrawableByLayerId()
+//						//Drawable drawable = DrawableCompat.wrap(x);
+////						x.setColorFilter(new
+////								PorterDuffColorFilter(0xffff00, PorterDuff.Mode.MULTIPLY));
+////						DrawableCompat.setTint(drawable, Color.RED);
+//						Log.e("", "");
+//					}
+//				}
+//
+//			}
+
+			//ImageView imageView = (ImageView) findViewById(R.id.imageSpinner);
+
+			//StateListDrawable drawable = (StateListDrawable) imageView.getBackground();
+
+
+//			LayerDrawable y = ((LayerDrawable) d.getCurrent());
+//			for (int i = 0; i < y.getNumberOfLayers(); i++) {
+//				if (y.getDrawable(i) instanceof BitmapDrawable) {
+//					BitmapDrawable x = (BitmapDrawable) y.getDrawable(i);
+//					x.setColorFilter(Color.RED, PorterDuff.Mode.SRC_ATOP);
+//					//Bitmap arrowBitmap = x.getBitmap();
+//
+//					// Wrap the drawable so that future tinting calls work
+//// on pre-v21 devices. Always use the returned drawable.
+//					Drawable xx = DrawableCompat.wrap(x);
+//
+//// We can now set a tint
+//					DrawableCompat.setTint(xx, Color.RED);
+//// ...or a tint list
+//					//DrawableCompat.setTintList(drawable, myColorStateList);
+//// ...and a different tint mode
+//					//DrawableCompat.setTintMode(xx, PorterDuff.Mode.SRC_ATOP);
+//				}
+//			}
 
 			FilterSpinnerAdapter regionAdapter = new FilterSpinnerAdapter(getApplicationContext(), R.layout.movie_detail_spinner_item, regions);
 

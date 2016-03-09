@@ -355,9 +355,10 @@
 
         <Button
             android:id="@+id/testViewButton"
-            android:layout_width="190dp"
+            android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:layout_below="@+id/slidingMenuButton"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/tableButton"
             android:layout_centerHorizontal="true"
             android:text="CircleTest" />
 
@@ -365,7 +366,8 @@
             android:id="@+id/fullImage"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:layout_below="@+id/testViewButton"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/tableButton"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="4dp"
             android:text="DrawerActivity" />
@@ -383,7 +385,8 @@
             android:id="@+id/picassoButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/imageButton"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/fullImage"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="2dp"
             android:text="Picasso loading" />
@@ -392,13 +395,14 @@
             android:id="@+id/imageButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/connect"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/fullImage"
             android:layout_centerHorizontal="true"
             android:text="ImageActivity" />
 
         <Button
             android:id="@+id/secondButton"
-            android:layout_width="190dp"
+            android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_below="@+id/picassoButton"
             android:layout_centerHorizontal="true"
@@ -406,15 +410,16 @@
 
         <Button
             android:id="@+id/viewPagerActivityButton"
-            android:layout_width="190dp"
+            android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:layout_below="@+id/toggleButton"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/secondButton"
             android:layout_centerHorizontal="true"
             android:text="ViewPager" />
 
         <Button
             android:id="@+id/toggleButton"
-            android:layout_width="190dp"
+            android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_below="@+id/secondButton"
             android:layout_centerHorizontal="true"
@@ -424,7 +429,8 @@
             android:id="@+id/volleyButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/viewPagerActivityButton"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/secondButton"
             android:layout_centerHorizontal="true"
             android:text="Volley" />
 
