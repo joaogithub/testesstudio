@@ -36,7 +36,7 @@ public class ToolBarActivity extends AppCompatActivity {
         lv_listname = (ListView) findViewById(R.id.listView);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
-        //  toolbar.setNavigationIcon(R.drawable.back_arrow_white);
+        //toolbar.setNavigationIcon(R.drawable.back_arrow_white);
 
         searchview = (MaterialSearchView) findViewById(R.id.searchview);
 
@@ -110,13 +110,14 @@ public class ToolBarActivity extends AppCompatActivity {
                 return true;
             }
         });
+
         lv_listname.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getApplicationContext(), "you clicked on " + al_names.get(position), Toast.LENGTH_LONG).show();
             }
         });
-        // searchview.setSubmitButtonEnabled(true);
+        //searchview.setSubmitButtonEnabled(true);
         searchview.setHint("Search Containers");
     }
 

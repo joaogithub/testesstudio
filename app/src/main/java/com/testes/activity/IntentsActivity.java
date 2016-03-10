@@ -61,8 +61,9 @@ public class IntentsActivity extends ActionBarActivity {
 
 		Intent sendIntent = getIntent();
 
-		if (sendIntent != null) {
+		if (sendIntent != null && sendIntent.getExtras() != null) {
 			Log.i(TAG, sendIntent.toString());
+
 			Uri uri = (Uri) sendIntent.getExtras().get(Intent.EXTRA_STREAM);
 
 			if (uri != null)
