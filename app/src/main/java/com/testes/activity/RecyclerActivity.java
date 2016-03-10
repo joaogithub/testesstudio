@@ -50,6 +50,23 @@ public class RecyclerActivity extends AppCompatActivity {
                 System.out.println("swipe " + swipeDir);
                 showTermsPopup(viewHolder.getAdapterPosition());
             }
+
+            @Override
+            public float getSwipeEscapeVelocity(float defaultValue) {
+
+                return super.getSwipeEscapeVelocity(defaultValue*20);
+            }
+
+            @Override
+            public float getSwipeVelocityThreshold(float defaultValue) {
+                return super.getSwipeVelocityThreshold(defaultValue*10);
+            }
+
+            @Override
+            public float getSwipeThreshold(RecyclerView.ViewHolder viewHolder) {
+
+                return super.getSwipeThreshold(viewHolder);
+            }
         };
 
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleItemTouchCallback);

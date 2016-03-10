@@ -100,7 +100,7 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
             connectbutton, animationActivityButton, mainActivityButton, secondButton, scrollViewButton, tableLayoutButton, tabHostButton;
     Button listViewButton, layoutButton, horizontalListViewButton, downloadButton, createTemFiles,
             webViewButton, videoViewButton, viewPagerButton, spinnerButton, alarmsButton, jsonButton, slidingMenuButton;
-    Button drawerButton, drawerLayoutButton, cardViewButton, volleyButton, textAnimationButton,
+    Button drawerButton, drawerLayoutButton, cardViewButton, volleyButton, textAnimationButton, permissionsButton,
             adButton, fragmentsButton, sensorButton, toggleButtonActivity, drawableButton, ttSpeechButton,
             canvasButton, pickerButton, seekBarButton, editTextButton, recyclerButton;
     Context c = this;
@@ -160,6 +160,7 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
         horizontalListViewButton = (Button) findViewById(R.id.horizontalListViewButton);
         sensorButton = (Button) findViewById(R.id.sensorButton);
         cardViewButton = (Button) findViewById(R.id.cardViewButton);
+        permissionsButton = (Button) findViewById(R.id.permissionButton);
         videoViewButton = (Button) findViewById(R.id.videoViewButton);
         canvasButton = (Button) findViewById(R.id.canvasButton);
         seekBarButton = (Button) findViewById(R.id.seekBarButton);
@@ -385,6 +386,13 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
             public void onClick(View v) {
                 startActivity(new Intent(FirstActivity.this, DownloadActivity.class));
 
+            }
+        });
+
+        permissionsButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(FirstActivity.this, PermissionActivity.class));
             }
         });
 
@@ -667,35 +675,37 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
         tManager.listen(pListener, PhoneStateListener.LISTEN_SIGNAL_STRENGTHS);
 
         TelephonyManager telephonyManager = (TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE);
-        List<CellInfo> cellList = telephonyManager.getAllCellInfo();
-        CellInfoWcdma cellinfoWcdma = null;
-        CellInfoGsm cellinfoGsm = null;
-        if (cellList != null && !cellList.isEmpty()) {
-            if (telephonyManager.getAllCellInfo().get(0) instanceof CellInfoWcdma)
-                cellinfoWcdma = (CellInfoWcdma) telephonyManager.getAllCellInfo().get(0);
-            if (telephonyManager.getAllCellInfo().get(0) instanceof CellInfoGsm)
-                cellinfoGsm = (CellInfoGsm) telephonyManager.getAllCellInfo().get(0);
-            if (cellinfoWcdma != null) {
-                CellSignalStrengthWcdma cellSignalStrengthWcdma = cellinfoWcdma.getCellSignalStrength();
-                if (Build.VERSION.SDK_INT >= 18) {
-                    Log.i(TAG, "Wcdma signal dbm:" + cellSignalStrengthWcdma.getDbm());
+        if(Build.VERSION.SDK_INT <= 22) {
+            List<CellInfo> cellList = telephonyManager.getAllCellInfo();
+            CellInfoWcdma cellinfoWcdma = null;
+            CellInfoGsm cellinfoGsm = null;
+            if (cellList != null && !cellList.isEmpty()) {
+                if (telephonyManager.getAllCellInfo().get(0) instanceof CellInfoWcdma)
+                    cellinfoWcdma = (CellInfoWcdma) telephonyManager.getAllCellInfo().get(0);
+                if (telephonyManager.getAllCellInfo().get(0) instanceof CellInfoGsm)
+                    cellinfoGsm = (CellInfoGsm) telephonyManager.getAllCellInfo().get(0);
+                if (cellinfoWcdma != null) {
+                    CellSignalStrengthWcdma cellSignalStrengthWcdma = cellinfoWcdma.getCellSignalStrength();
+                    if (Build.VERSION.SDK_INT >= 18) {
+                        Log.i(TAG, "Wcdma signal dbm:" + cellSignalStrengthWcdma.getDbm());
+                    }
                 }
-            }
-            if (cellinfoGsm != null) {
-                CellSignalStrengthGsm cellSignalStrengthGsm = cellinfoGsm.getCellSignalStrength();
-                if (Build.VERSION.SDK_INT >= 18) {
-                    Log.i(TAG, "Gsm signal dbm:" + cellSignalStrengthGsm.getDbm());
+                if (cellinfoGsm != null) {
+                    CellSignalStrengthGsm cellSignalStrengthGsm = cellinfoGsm.getCellSignalStrength();
+                    if (Build.VERSION.SDK_INT >= 18) {
+                        Log.i(TAG, "Gsm signal dbm:" + cellSignalStrengthGsm.getDbm());
+                    }
                 }
-            }
-        } else {
-
-            if (telephonyManager.getNeighboringCellInfo() != null && !telephonyManager.getNeighboringCellInfo().isEmpty()) {
-                telephonyManager.getNeighboringCellInfo().get(0);
             } else {
 
-                CellLocation celllocation = telephonyManager.getCellLocation();
-                if (celllocation != null)
-                    Log.i(TAG, celllocation.toString());
+                if (telephonyManager.getNeighboringCellInfo() != null && !telephonyManager.getNeighboringCellInfo().isEmpty()) {
+                    telephonyManager.getNeighboringCellInfo().get(0);
+                } else {
+
+                    CellLocation celllocation = telephonyManager.getCellLocation();
+                    if (celllocation != null)
+                        Log.i(TAG, celllocation.toString());
+                }
             }
         }
 

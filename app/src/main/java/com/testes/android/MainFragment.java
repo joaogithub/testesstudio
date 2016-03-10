@@ -9,6 +9,8 @@ import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Paint.Align;
+import android.graphics.Rect;
+import android.graphics.RectF;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -30,6 +32,8 @@ import java.io.InputStream;
 
 public class MainFragment extends Fragment {
     private static final String TAG = "MainFragment";
+    private static final int IMAGE_HEIGHT = 30;
+    private static final int IMAGE_WIDTH = 35;
     private View _view;
     ImageView medalIcon;
     static ProgressDialog progressDialog;
@@ -114,8 +118,8 @@ public class MainFragment extends Fragment {
         imagePaint.setColor(Color.WHITE);
 
         //rect that holds the green circle
-//		        RectF circleRect = new RectF(0,(float)(IMAGE_HEIGHT/3),IMAGE_WIDTH+(IMAGE_WIDTH/2),(float)(IMAGE_HEIGHT/3)+(IMAGE_HEIGHT));
-//		        Rect recta = new Rect(IMAGE_WIDTH/3,IMAGE_HEIGHT/3,IMAGE_WIDTH*2, IMAGE_HEIGHT*2);
+        RectF circleRect = new RectF(0,(float)(IMAGE_HEIGHT/3),IMAGE_WIDTH+(IMAGE_WIDTH/2),(float)(IMAGE_HEIGHT/3)+(IMAGE_HEIGHT));
+        Rect recta = new Rect(IMAGE_WIDTH/3,IMAGE_HEIGHT/3,IMAGE_WIDTH*2, IMAGE_HEIGHT*2);
         // Draw the image to our canvas
         //        //backgroundImage.draw(imageCanvas);
         Matrix scaleMatrix = new Matrix();

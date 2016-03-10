@@ -93,6 +93,8 @@
         <activity android:name="com.testes.activity.CardActivity" />
         <activity android:name="com.testes.activity.TabHostActivity" />
         <activity android:name="com.testes.activity.ToolBarActivity" />
+        <activity android:name="com.testes.activity.PermissionActivity" >
+        </activity>
         <activity android:name="com.testes.activity.ToggleButtonActivity" />
         <activity android:name="com.testes.activity.VolleyActivity" />
         <activity android:name="com.testes.activity.AnimationActivity" />
