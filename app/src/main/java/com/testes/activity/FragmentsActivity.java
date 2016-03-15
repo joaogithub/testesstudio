@@ -244,7 +244,7 @@ public class FragmentsActivity extends ActionBarActivity implements OnMapLoadedC
                     FragmentTransaction transaction = getFragmentManager().beginTransaction();
                     //adding to back stack
                     transaction.addToBackStack("replace").replace(((ViewGroup) getView().getParent()).getId(), signupFragment).commit();
-
+                    transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
                     MapFragment mapFragment = (MapFragment) MapFragment.newInstance();
                     GoogleMap mapView = mapFragment.getMap();
 //					mapView.setOnMapLoadedCallback(new OnMapLoadedCallback() {
@@ -295,7 +295,7 @@ public class FragmentsActivity extends ActionBarActivity implements OnMapLoadedC
     }
 
     public void press(View view) {
-        Log.i("FragmentsActivity", "Pressed");
+        Log.i(getClass().getSimpleName(), "Pressed");
         myView.setText("Changed");
     }
 

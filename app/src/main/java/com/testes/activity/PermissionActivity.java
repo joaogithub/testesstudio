@@ -153,6 +153,7 @@ public class PermissionActivity extends Activity {
      * false if Version equal or above M, and at least one of the permissions in not GRANTED
      */
     private boolean hasAllPermissionsGranted(String[] permissions) {
+
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
             return true;
         else {

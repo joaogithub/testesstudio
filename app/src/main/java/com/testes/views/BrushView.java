@@ -1,7 +1,5 @@
 package com.testes.views;
 
-import com.testes.android.R;
-
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -9,16 +7,19 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout.LayoutParams;
 
-public class BrushViewClass extends View {
+import com.testes.android.R;
+
+public class BrushView extends View {
     private Paint brush = new Paint();
     private Path path = new Path();
     public Button btnEraseAll;
     public LayoutParams params;
 
-    public BrushViewClass(Context context) {
+    public BrushView(Context context) {
         super(context);
         brush.setAntiAlias(true);
         brush.setColor(Color.BLUE);
@@ -28,7 +29,7 @@ public class BrushViewClass extends View {
 
         btnEraseAll = new Button(context);
         btnEraseAll.setText(context.getString(R.string.redraw_again));
-        params = new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT);
+        params = new LayoutParams(LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
         btnEraseAll.setBackgroundDrawable(getResources().getDrawable(R.drawable.green_degradee));
         btnEraseAll.setLayoutParams(params);

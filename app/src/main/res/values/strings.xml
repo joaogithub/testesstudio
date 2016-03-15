@@ -12,6 +12,7 @@
     <string name="disabled">disabled</string>
     <string name="yes">yes</string>
     <string name="cardViewTitle">Hi. This is a CardView</string>
+    <string name="cardViewEdgesTitle">This is a CardView with round edges only on top</string>
     <string name="no">no</string>
     <string name="grid">GridViewActivity</string>
     <string name="check">CheckListActivity</string>

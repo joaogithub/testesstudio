@@ -14,7 +14,7 @@
         android:gravity="center"
         android:background="@color/red"
         android:onClick="press"
-        android:text="Replacement fragmenbt text" />
+        android:text="Replacement fragment text" />
 
 
 </RelativeLayout>
