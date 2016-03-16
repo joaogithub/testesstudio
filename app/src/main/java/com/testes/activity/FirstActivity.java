@@ -155,6 +155,7 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
         picassoButton = (Button) findViewById(R.id.picassoButton);
         jsonButton = (Button) findViewById(R.id.jsonButton);
         imageButton = (Button) findViewById(R.id.imageButton);
+        Button accordionButton = (Button) findViewById(R.id.accordionButton);
         editTextButton = (Button) findViewById(R.id.editTextButton);
         layoutButton = (Button) findViewById(R.id.layoutButton);
         horizontalListViewButton = (Button) findViewById(R.id.horizontalListViewButton);
@@ -411,6 +412,13 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
             public void onClick(View v) {
                 startActivity(new Intent(FirstActivity.this, ImageActivity.class));
 
+            }
+        });
+
+        accordionButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(FirstActivity.this, AccordionActivity.class));
             }
         });
 

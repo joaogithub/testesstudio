@@ -1,0 +1,200 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFFFF"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btnProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Profile"
+        android:textColor="#FFFFFFFF" />
+
+    <LinearLayout
+        android:id="@+id/panelProfile"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="#FFFFFFFF">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FFFFFFFF">
+
+                <LinearLayout
+                    android:id="@+id/panelProfile1"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFFFF">
+
+                    <TextView
+                        android:id="@+id/strName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Name" />
+
+                    <EditText
+                        android:id="@+id/txtName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/panelProfile2"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFFFF">
+
+                    <TextView
+                        android:id="@+id/strSurname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Surname" />
+
+                    <EditText
+                        android:id="@+id/txtSurname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+
+
+    <Button
+        android:id="@+id/btnSettings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Settings"
+        android:textColor="#FFFFFFFF" />
+
+    <LinearLayout
+        android:id="@+id/panelSettings"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="#FFFFFFFF">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/panelSettings1"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFFFF">
+
+                    <TextView
+                        android:id="@+id/strMail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="e-mail" />
+
+                    <EditText
+                        android:id="@+id/txtMail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/panelSettings2"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFFFF">
+
+                    <TextView
+                        android:id="@+id/strPhone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Phone" />
+
+                    <EditText
+                        android:id="@+id/txtPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+
+
+    <Button
+        android:id="@+id/btnPrivacy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Privacy"
+        android:textColor="#FFFFFFFF" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/panelPrivacy"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#FFFFFFFF">
+
+            <CheckBox
+                android:id="@+id/checkFacebook"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Facebook"
+                android:textColor="#ff355689">
+            </CheckBox>
+            <CheckBox
+                android:id="@+id/checkLinkedIn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="LinkedIn"
+                android:textColor="#ff355689">
+            </CheckBox>
+            <CheckBox
+                android:id="@+id/checkTwitter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Twitter"
+                android:textColor="#ff355689">
+            </CheckBox>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

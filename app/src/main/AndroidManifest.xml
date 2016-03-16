@@ -85,6 +85,7 @@
         <activity android:name="com.testes.activity.PicassoActivity" />
         <activity android:name="com.testes.activity.AdsActivity" />
         <activity android:name="com.testes.activity.SlidingActivity" />
+        <activity android:name="com.testes.activity.AccordionActivity"/>
         <activity android:name="com.testes.activity.DownloadActivity" />
         <activity android:name="com.testes.activity.VideoViewActivity" />
         <activity android:name="com.testes.activity.AgendaDetailActivity" />
