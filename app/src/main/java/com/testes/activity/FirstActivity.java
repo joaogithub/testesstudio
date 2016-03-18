@@ -47,6 +47,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Parcelable;
 import android.os.Vibrator;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.view.ActionMode;
@@ -92,6 +93,9 @@ import com.testes.database.DBHelper;
 import com.testes.database.PhoneDal;
 import com.testes.interfaces.NavigationDrawerCallbacks;
 import com.testes.receiver.WifiScanReceiver;
+import com.timwe.mcoin.interfaces.OnInitResult;
+import com.timwe.mcoin.model.PricePoint;
+import com.timwe.mcoin.sdk.MCoin;
 
 public class FirstActivity extends ActionBarActivity implements ActionMode.Callback, NavigationDrawerCallbacks {
     TextView text1;
@@ -403,6 +407,24 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
             public void onClick(View v) {
                 startActivity(new Intent(FirstActivity.this, SpinnerActivity.class));
                 overridePendingTransition(R.anim.animation, R.anim.animation2);
+            }
+        });
+
+        findViewById(R.id.buyButton).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MCoin mcoin = MCoin.getInstance(FirstActivity.this);
+                mcoin.init("31331389", "231231231", new OnInitResult() {
+                    @Override
+                    public void onSuccess(List<PricePoint> list) {
+                        Snackbar.make(imageButton, "success "+ list, Snackbar.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onFailure(int i, String s) {
+                        Snackbar.make(imageButton, "error "+ s, Snackbar.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
 

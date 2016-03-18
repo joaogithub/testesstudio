@@ -44,6 +44,7 @@ public class IntentsActivity extends ActionBarActivity {
 
     String buttonText = "";
     ImageView startImage;
+    File file;
     Button send, search, capture, setasButton, viewButton, mapsButton,
             openMediPlayerButton, playFileButton, browserButton, pickButton,
             callButton, getContentButton, ringToneButton, settingsButton;
@@ -123,7 +124,7 @@ public class IntentsActivity extends ActionBarActivity {
             public void onClick(View v) {
                 Intent capturingIntent = new Intent(
                         MediaStore.ACTION_IMAGE_CAPTURE);
-                File file = new File(Environment.getExternalStorageDirectory()
+                file = new File(Environment.getExternalStorageDirectory()
                         .getAbsoluteFile() + "/" + "231" + ".jpg");
                 capturingIntent.putExtra(MediaStore.EXTRA_OUTPUT,
                         Uri.fromFile(file));
@@ -399,8 +400,9 @@ public class IntentsActivity extends ActionBarActivity {
                 && resultCode == Activity.RESULT_OK) {
             ExifInterface exif;
             int rotate = 0;
+            Bitmap bitmap;
             if (data != null) {
-                Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+                bitmap = (Bitmap) data.getExtras().get("data");
                 saveImageToSDCard(bitmap);
                 try {
                     imageUri = data.getData().toString();
@@ -518,6 +520,8 @@ public class IntentsActivity extends ActionBarActivity {
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
+            } else if (Uri.fromFile(file) != null) {
+                    startImage.setImageURI(Uri.fromFile(file));
             }
         } else if (requestCode == PICK_REQUEST_CODE
                 && resultCode == Activity.RESULT_OK) {
@@ -525,7 +529,7 @@ public class IntentsActivity extends ActionBarActivity {
             Bitmap bitmap = null;
             if (data.getExtras() != null) {
                 bitmap = (Bitmap) data.getExtras().get("data");
-                if(bitmap != null)
+                if (bitmap != null)
                     startImage.setImageBitmap(bitmap);
             }
             try {
