@@ -5,3 +5,6 @@
 .DS_Store
 /build
 .idea/
+app/app.iml
+gradle/wrapper/gradle-wrapper.properties
+testesstudio.iml
