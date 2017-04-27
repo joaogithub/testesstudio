@@ -1,7 +1,5 @@
 package com.testes.adapter;
 
-import com.testes.android.R;
-
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.view.LayoutInflater;
@@ -11,53 +9,87 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.testes.android.R;
+
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.RandomAccess;
+
 public class ImageAndTextAdapter extends ArrayAdapter<String> {
 
-	private LayoutInflater mInflater;
+    private LayoutInflater mInflater;
 
-	private String[] mStrings;
-	private TypedArray mIcons;
+    private ArrayList<String> mStrings;
+    private TypedArray mIcons;
 
-	private int mViewResourceId;
+    private int mViewResourceId;
 
-	public ImageAndTextAdapter(Context ctx, int viewResourceId,
-			String[] strings, TypedArray icons) {
-		super(ctx, viewResourceId, strings);
+    public ImageAndTextAdapter(Context ctx, int viewResourceId,
+                               ArrayList<String> strings, TypedArray icons) {
+        super(ctx, viewResourceId, strings);
 
-		mInflater = (LayoutInflater)ctx.getSystemService(
-				Context.LAYOUT_INFLATER_SERVICE);
+        mInflater = (LayoutInflater) ctx.getSystemService(
+                Context.LAYOUT_INFLATER_SERVICE);
 
-		mStrings = strings;
-		mIcons = icons;
+        mStrings = strings;
+        mIcons = icons;
 
-		mViewResourceId = viewResourceId;
-	}
+        mViewResourceId = viewResourceId;
+    }
 
-	@Override
-	public int getCount() {
-		return mStrings.length;
-	}
+    @Override
+    public int getCount() {
+        return mStrings.size();
+    }
 
-	@Override
-	public String getItem(int position) {
-		return mStrings[position];
-	}
+    @Override
+    public String getItem(int position) {
+        return mStrings.get(position);
+    }
 
-	@Override
-	public long getItemId(int position) {
-		return position;
-	}
-	
-	@Override
-	public View getView(int position, View convertView, ViewGroup parent) {
-		convertView = mInflater.inflate(mViewResourceId, null);
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
 
-		ImageView iv = (ImageView)convertView.findViewById(R.id.icon);
-		iv.setImageDrawable(mIcons.getDrawable(position));
+    @Override
+    public View getView(final int position, View convertView, ViewGroup parent) {
+        ViewHolder holder = null;
+        if (convertView == null) {
+            convertView = mInflater.inflate(mViewResourceId, null);
+            holder = new ViewHolder();
+            holder.imageView = (ImageView) convertView.findViewById(R.id.icon);
+            holder.textView = (TextView) convertView.findViewById(R.id.text);
+            convertView.setTag(holder);
+        } else {
+            holder = (ViewHolder) convertView.getTag();
+        }
 
-		TextView tv = new TextView(getContext());
-		tv.setText(mStrings[position]);
+        holder.imageView.setImageDrawable(mIcons.getDrawable(position));
 
-		return convertView;
-	}
+        holder.textView.setText(mStrings.get(position));
+
+        holder.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                add(""+v.getY() + position);
+                notifyDataSetChanged();
+            }
+        });
+
+        return convertView;
+    }
+
+
+    public class ViewHolder {
+
+        private TextView textView;
+        private ImageView imageView;
+
+        public ViewHolder() {
+
+        }
+
+    }
+
 }

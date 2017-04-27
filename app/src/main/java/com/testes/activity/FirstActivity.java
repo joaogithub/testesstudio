@@ -560,7 +560,8 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
 
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(FirstActivity.this, ListViewActivity.class));
+                startActivity(new Intent(FirstActivity.this, ImageAndTextActivity.class));
+                //startActivity(new Intent(FirstActivity.this, ListViewActivity.class));
                 //				startActivity(new Intent(FirstActivity.this, HorizontalListViewActivity.class));
             }
         });
