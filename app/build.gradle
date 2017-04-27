@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 24
-    buildToolsVersion "23.0.3"
+    buildToolsVersion '25.0.0'
     useLibrary  'org.apache.http.legacy'
 
     defaultConfig {
         applicationId "com.testes.android"
         minSdkVersion 15
-        targetSdkVersion 24
+        targetSdkVersion 23
         multiDexEnabled true
     }
 
@@ -34,7 +34,6 @@ android {
                 exclude 'META-INF/NOTICE.txt'
                 exclude 'META-INF/NOTICE'
                 exclude 'META-INF/notice.txt'
-
             }}
     }
 }
@@ -56,12 +55,12 @@ dependencies {
     compile ('com.facebook.android:facebook-android-sdk:3.23.1') {
         exclude module: 'support-v4'
     }
-    compile 'com.google.android.gms:play-services-gcm:8.4.0'
-    compile 'com.google.android.gms:play-services-drive:8.4.0'
-    compile 'com.google.android.gms:play-services-plus:8.4.0'
-    compile 'com.google.android.gms:play-services-ads:8.4.0'
-    compile 'com.google.android.gms:play-services-maps:8.4.0'
-    compile 'com.google.android.gms:play-services-analytics:8.4.0'
+    compile 'com.google.android.gms:play-services-gcm:10.2.1'
+    compile 'com.google.android.gms:play-services-drive:10.2.1'
+    compile 'com.google.android.gms:play-services-plus:10.2.1'
+    compile 'com.google.android.gms:play-services-ads:10.2.1'
+    compile 'com.google.android.gms:play-services-maps:10.2.1'
+    compile 'com.google.android.gms:play-services-analytics:10.2.1'
     compile 'com.miguelcatalan:materialsearchview:1.4.0'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'org.apache.httpcomponents:httpmime:4.2.3'
