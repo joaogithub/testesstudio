@@ -23,4 +23,5 @@
     <string name="my_transition">transition</string>
     <string name="banner_ad_unit_id">ca-app-pub-9028489504757791/4680130060 </string>
     <string name="remove">Remover?</string>
+    <string name="cordinator">Coordinator</string>
 </resources>

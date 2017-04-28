@@ -12,6 +12,20 @@
         -->
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowNoTitle">true</item>
+        <!--   theme UI controls like checkboxes and text fields -->
+        <item name="colorAccent">@color/blue</item>
+    </style>
+
+    <style name="AppBaseTheme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="colorAccent">@color/blue</item>
+        <item name="colorPrimary">@color/light_blue</item>
     </style>
 
     <!-- Application theme. -->

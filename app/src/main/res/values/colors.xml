@@ -3,7 +3,7 @@
 
     <color name="grey">#d2d2d2</color>
     <color name="red">#dd1111</color>
-    <color name="pink">#fe003e</color>
+    <color name="pink">#fe503e</color>
     <color name="green">#00f00e</color>
     <color name="blue">#0000FF</color>
     <color name="light_grey">#CCCCCC</color>
@@ -14,5 +14,6 @@
     <color name="darkergrey">#505050</color>
     <color name="darkpink">#b4012d</color>
     <color name="l1_item_text_color">#e97231</color>
-
+    <color name="dark_blue">#0011BB</color>
+    <color name="light_blue">#0082FF</color>
 </resources>

@@ -98,7 +98,7 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
             webViewButton, videoViewButton, viewPagerButton, spinnerButton, alarmsButton, jsonButton, slidingMenuButton;
     Button drawerButton, drawerLayoutButton, cardViewButton, volleyButton, textAnimationButton, permissionsButton,
             adButton, fragmentsButton, sensorButton, toggleButtonActivity, drawableButton, ttSpeechButton,
-            canvasButton, pickerButton, seekBarButton, editTextButton, recyclerButton;
+            canvasButton, pickerButton, seekBarButton, editTextButton, recyclerButton, coordinatorButton;
     Context c = this;
     ImageButton facebookLoginButton;
     ScrollView scrollViewLayout;
@@ -149,6 +149,7 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
         recyclerButton = (Button) findViewById(R.id.recyclerBtn);
         connectbutton = (Button) findViewById(R.id.connect);
         picassoButton = (Button) findViewById(R.id.picassoButton);
+        coordinatorButton = (Button) findViewById(R.id.coordinatorButton);
         jsonButton = (Button) findViewById(R.id.jsonButton);
         imageButton = (Button) findViewById(R.id.imageButton);
         Button accordionButton = (Button) findViewById(R.id.accordionButton);
@@ -249,6 +250,15 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
             }
         });
 
+        coordinatorButton.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(FirstActivity.this, CoordinatorActivity.class));
+            }
+        });
+
         cardViewButton.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -309,8 +319,8 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
         });
 
         //	 change the titlebar color
-        //		getActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.background_action_bar));
-        //		getActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.border));
+        //getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.background_action_bar));
+        //getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.border));
         //		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //		getSupportActionBar().setHomeButtonEnabled(true);
         //		getSupportActionBar().setDisplayShowCustomEnabled(true);
