@@ -24,4 +24,6 @@
     <string name="banner_ad_unit_id">ca-app-pub-9028489504757791/4680130060 </string>
     <string name="remove">Remover?</string>
     <string name="cordinator">Coordinator</string>
+    <string name="appbar_layout">AppBarLayout</string>
+    <string name="toolbar_title">Toolbar Title</string>
 </resources>

@@ -29,6 +29,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Parcelable;
 import android.os.Vibrator;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.view.ActionMode;
@@ -98,7 +99,7 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
             webViewButton, videoViewButton, viewPagerButton, spinnerButton, alarmsButton, jsonButton, slidingMenuButton;
     Button drawerButton, drawerLayoutButton, cardViewButton, volleyButton, textAnimationButton, permissionsButton,
             adButton, fragmentsButton, sensorButton, toggleButtonActivity, drawableButton, ttSpeechButton,
-            canvasButton, pickerButton, seekBarButton, editTextButton, recyclerButton, coordinatorButton;
+            canvasButton, pickerButton, seekBarButton, editTextButton, recyclerButton, coordinatorButton, appBarLayoutBtn;
     Context c = this;
     ImageButton facebookLoginButton;
     ScrollView scrollViewLayout;
@@ -145,6 +146,7 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
         slidingMenuButton = (Button) findViewById(R.id.slidingMenuButton);
         toggleButtonActivity = (Button) findViewById(R.id.toggleButton);
         adButton = (Button) findViewById(R.id.adButton);
+        appBarLayoutBtn = (Button) findViewById(R.id.appBarLayoutBtn);
         centerButton = (Button) findViewById(R.id.centerButton);
         recyclerButton = (Button) findViewById(R.id.recyclerBtn);
         connectbutton = (Button) findViewById(R.id.connect);
@@ -585,13 +587,19 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
             }
         });
 
+        appBarLayoutBtn.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(FirstActivity.this, AppBarLayoutActivity.class));
+            }
+        });
+
         recyclerButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(FirstActivity.this, RecyclerActivity.class));
             }
         });
-
         textAnimationButton.setOnClickListener(new OnClickListener() {
 
             @Override
