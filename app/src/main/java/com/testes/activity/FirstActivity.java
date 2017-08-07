@@ -675,27 +675,27 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
             }
         });
 
-        //		drawableButton.setOnClickListener(new OnClickListener() {
-        //
-        //			@Override
-        //			public void onClick(View v) {
-        //				Bundle bundle =  new Bundle();
-        //				Intent scrollIntent = new Intent(FirstActivity.this, DrawableActivity.class);
-        //
-        //				startActivity(scrollIntent);
-        //
-        //			}
-        //		});
+        		drawableButton.setOnClickListener(new OnClickListener() {
 
-        drawableButton.setOnLongClickListener(new OnLongClickListener() {
+        			@Override
+        			public void onClick(View v) {
+                        Bundle bundle =  new Bundle();
+        				Intent scrollIntent = new Intent(FirstActivity.this, DrawableActivity.class);
 
-            @Override
-            public boolean onLongClick(View v) {
-                isVoiceButtonHeld = true;
-                startRecording();
-                return false;
-            }
-        });
+        				startActivity(scrollIntent);
+
+        			}
+        		});
+
+       // drawableButton.setOnLongClickListener(new OnLongClickListener() {
+
+           // @Override
+        // public boolean onLongClick(View v) {
+        //    isVoiceButtonHeld = true;
+        //    startRecording();
+        //     return false;
+        // }
+       // });
 
         TelephonyManager tManager;
         SignalStrengthListener pListener = new SignalStrengthListener();
