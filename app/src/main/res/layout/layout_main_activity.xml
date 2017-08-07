@@ -42,17 +42,26 @@
             android:hint="@string/create_title_hint"
             android:imeActionLabel="Done"
             android:imeOptions="actionDone"
-            android:singleLine="true"
+            android:maxLines="1"
             android:textColor="@android:color/black"
             android:textSize="16sp"
             android:visibility="gone" />
+
+        <Button
+            android:id="@+id/appBarLayoutBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/appbar_layout"
+            android:layout_below="@+id/main_list"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
         <Button
             android:id="@+id/cardViewButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_below="@+id/myEditText"
+            android:layout_below="@+id/appBarLayoutBtn"
             android:layout_centerHorizontal="true"
             android:text="CardView" />
 
@@ -60,7 +69,7 @@
             android:id="@+id/permissionButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/myEditText"
+            android:layout_below="@+id/appBarLayoutBtn"
             android:layout_centerHorizontal="true"
             android:text="Permissions" />
 
@@ -69,7 +78,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_below="@+id/myEditText"
+            android:layout_below="@+id/appBarLayoutBtn"
             android:layout_centerHorizontal="true"
             android:text="INIT" />
 
@@ -306,6 +315,15 @@
             android:visibility="visible" />
 
         <Button
+            android:id="@+id/coordinatorButton"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/createTempFilesButton"
+            android:layout_centerHorizontal="true"
+            android:text="@string/cordinator" />
+
+        <Button
             android:id="@+id/horizontalListViewButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -475,7 +493,7 @@
             android:focusableInTouchMode="true"
             android:marqueeRepeatLimit="marquee_forever"
             android:scrollHorizontally="true"
-            android:singleLine="true"
+            android:maxLines="1"
             android:text="See in Webpage in a decent Webview, with all my love and caring" />
     </RelativeLayout>
 

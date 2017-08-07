@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array
+        name="icons_array">
+        <item>@drawable/agenda_square</item>
+        <item>@drawable/agenda_square</item>
+        <item>@drawable/agenda_square</item>
+        <item>@drawable/agenda_square</item>
+        <item>@drawable/agenda_square</item>
+        <item>@drawable/agenda_square</item>
+        <item>@drawable/agenda_square</item>
+        <item>@drawable/agenda_square</item>
+        <item>@drawable/agenda_square</item>
+        <item>@drawable/agenda_square</item>
+        <item>@drawable/agenda_square</item>
+        <item>@drawable/agenda_square</item>
+        <item>@drawable/agenda_square</item>
+        <item>@drawable/agenda_square</item>
+        <item>@drawable/agenda_square</item>
+        <item>@drawable/agenda_square</item>
+        <item>@drawable/agenda_square</item>
+        <item>@drawable/agenda_square</item>
+        <item>@drawable/agenda_square</item>
+        <item>@drawable/ic_action_action_search</item>
+        <item>@drawable/agenda_square</item>
+        <item>@drawable/agenda_square</item>
+        <item>@drawable/tab_divider</item>
+        <item>@drawable/agenda_square</item>
+        <item>@drawable/green_degradee</item>
+        <item>@drawable/agenda_square</item>
+        <item>@drawable/agenda_square</item>
+        <item>@drawable/agenda_square</item>
+        <item>@drawable/back</item>
+        <item>@drawable/agenda_square</item>
+        <item>@drawable/agenda_square</item>
+        <item>@drawable/agenda_square</item>
+        <item>@drawable/agenda_square</item>
+        <item>@drawable/agenda_square</item>
+        <item>@drawable/agenda_square</item>
+        <item>@drawable/agenda_square</item>
+    </array>
+</resources>
+

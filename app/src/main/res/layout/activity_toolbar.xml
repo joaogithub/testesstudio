@@ -12,18 +12,23 @@
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="?attr/actionBarSize"
+            android:elevation="4dp" />
 
         <com.miguelcatalan.materialsearchview.MaterialSearchView
             android:id="@+id/searchview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="40dp"
+            android:visibility="visible"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white" />
+
 
     </FrameLayout>
 
     <ListView
         android:id="@+id/listView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="200dp" />
 
 </LinearLayout>

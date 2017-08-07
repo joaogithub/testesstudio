@@ -35,8 +35,8 @@ public class ToolBarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_toolbar);
         lv_listname = (ListView) findViewById(R.id.listView);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
-        //toolbar.setNavigationIcon(R.drawable.back_arrow_white);
+        setSupportActionBar(toolbar);
+        toolbar.setNavigationIcon(R.drawable.ic_menu);
 
         searchview = (MaterialSearchView) findViewById(R.id.searchview);
 
@@ -59,9 +59,6 @@ public class ToolBarActivity extends AppCompatActivity {
         al_names.add(new Bean("Rushi", 22));
         al_names.add(new Bean("Swathi", 22));
         al_names.add(new Bean("Priya", 22));
-        al_names.add(new Bean("Kiran", 22));
-        al_names.add(new Bean("Laskshmi", 22));
-        al_names.add(new Bean("Hammad", 22));
         al_names.add(new Bean("Anil", 22));
         al_names.add(new Bean("Anand", 22));
         al_names2 = al_names;
@@ -69,8 +66,8 @@ public class ToolBarActivity extends AppCompatActivity {
         lv_listname.setAdapter(ad_names);
 
         lv_listname.setTextFilterEnabled(false);
-        //   filter = ad_names.getFilter();
-        //ad_names.notifyDataSetChanged();
+        filter = ad_names.getFilter();
+        ad_names.notifyDataSetChanged();
         setupSearchView();
 
         searchview.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
@@ -83,14 +80,12 @@ public class ToolBarActivity extends AppCompatActivity {
 
             @Override
             public void onSearchViewClosed() {
-                //  lv_listname.clearTextFilter();
-
+                 lv_listname.clearTextFilter();
                 Toast.makeText(getApplicationContext(), "closed ", Toast.LENGTH_LONG).show();
                 toolbar.setVisibility(View.VISIBLE);
 
             }
         });
-
 
         searchview.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
             @Override
@@ -103,9 +98,9 @@ public class ToolBarActivity extends AppCompatActivity {
                 if (TextUtils.isEmpty(newText)) {
                     lv_listname.clearTextFilter();
                 } else {
-                    // lv_listname.setFilterText(newText);
+                    lv_listname.setFilterText(newText);
                     ad_names.getFilter().filter(newText);
-                    //filter.filter(newText);
+                    filter.filter(newText);
                 }
                 return true;
             }
@@ -122,9 +117,7 @@ public class ToolBarActivity extends AppCompatActivity {
     }
 
     private void setupSearchView() {
-        //  searchview.setIconifiedByDefault(false);
-
-        //   searchview.seti
+        //searchview.setIconifiedByDefault(false);
     }
 
     @Override
@@ -147,7 +140,6 @@ public class ToolBarActivity extends AppCompatActivity {
 //            searchview.setVisibility(View.VISIBLE);
 //
 //        }
-
 
         return super.onOptionsItemSelected(item);
     }

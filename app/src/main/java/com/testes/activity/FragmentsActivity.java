@@ -11,6 +11,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.text.Spanned;
 import android.util.Log;
@@ -30,7 +31,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMap.OnMapLoadedCallback;
 import com.google.android.gms.maps.MapFragment;
 import com.testes.android.R;
@@ -38,7 +38,7 @@ import com.testes.data.Person;
 
 import java.util.Set;
 
-public class FragmentsActivity extends ActionBarActivity implements OnMapLoadedCallback {
+public class FragmentsActivity extends AppCompatActivity implements OnMapLoadedCallback {
 
     private static TextView myView, myOtherView;
     CheckBox checkbox;
@@ -246,7 +246,7 @@ public class FragmentsActivity extends ActionBarActivity implements OnMapLoadedC
                     transaction.addToBackStack("replace").replace(((ViewGroup) getView().getParent()).getId(), signupFragment).commit();
                     transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
                     MapFragment mapFragment = (MapFragment) MapFragment.newInstance();
-                    GoogleMap mapView = mapFragment.getMap();
+                    //GoogleMap mapView = mapFragment.getMap();
 //					mapView.setOnMapLoadedCallback(new OnMapLoadedCallback() {
 //
 //						@Override

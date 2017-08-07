@@ -1,13 +1,7 @@
 package com.testes.activity;
 
-import java.util.ArrayList;
-
-import com.testes.adapter.TestGridAdapter;
-import com.testes.android.R;
-
-import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -16,82 +10,85 @@ import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.GridView;
 
-public class GridViewActivity extends ActionBarActivity 
-{
+import com.testes.adapter.TestGridAdapter;
+import com.testes.android.R;
 
-	ArrayList<String> abcList;
+import java.util.ArrayList;
 
-	TestGridAdapter testGridAdapter;
+public class GridViewActivity extends AppCompatActivity {
 
-	GridView gridView;
-	Button button;
+    ArrayList<String> abcList;
 
-	int mLastFirstVisibleItem;
+    TestGridAdapter testGridAdapter;
 
-	int mLastVisibleItemCount;
+    GridView gridView;
+    Button button;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) 
-	{
-		getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
-		super.onCreate(savedInstanceState);
-		Log.i("GridViewActivity","onCreate() home");
-		
-		setContentView(R.layout.home_gridview);
+    int mLastFirstVisibleItem;
 
-		gridView = (GridView) findViewById(R.id.gridView1);
-		button = (Button) findViewById(R.id.nextButton);
-		
-		abcList = new ArrayList<String>();
+    int mLastVisibleItemCount;
 
-		for(int i=0;i<25;i++)		{
-			abcList.add(String.valueOf(i));
-		}
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
+        super.onCreate(savedInstanceState);
+        Log.i("GridViewActivity", "onCreate() home");
 
-		testGridAdapter = new TestGridAdapter(GridViewActivity.this,GridViewActivity.this,abcList);
+        setContentView(R.layout.home_gridview);
 
-		button.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				((TabsActivity) getParent()).getTabHost().setCurrentTab(2);	
-			}
-		});
-		
-		if(abcList.size() == 25 || abcList.size() == 9)
-			gridView.setNumColumns((int) Math.sqrt(abcList.size()));
-		gridView.setAdapter(testGridAdapter);
+        gridView = (GridView) findViewById(R.id.gridView1);
+        button = (Button) findViewById(R.id.nextButton);
 
-		gridView.setOnScrollListener(new AbsListView.OnScrollListener() {
-			public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-				if (mLastFirstVisibleItem > firstVisibleItem) {
+        abcList = new ArrayList<String>();
+
+        for (int i = 0; i < 25; i++) {
+            abcList.add(String.valueOf(i));
+        }
+
+        testGridAdapter = new TestGridAdapter(GridViewActivity.this, GridViewActivity.this, abcList);
+
+        button.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                ((TabsActivity) getParent()).getTabHost().setCurrentTab(2);
+            }
+        });
+
+        if (abcList.size() == 25 || abcList.size() == 9)
+            gridView.setNumColumns((int) Math.sqrt(abcList.size()));
+        gridView.setAdapter(testGridAdapter);
+
+        gridView.setOnScrollListener(new AbsListView.OnScrollListener() {
+            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                if (mLastFirstVisibleItem > firstVisibleItem) {
 //					Log.e(getClass().toString(), "scrolling up");
 //					getSupportActionBar().show();
-				} else if (mLastFirstVisibleItem < firstVisibleItem) {
+                } else if (mLastFirstVisibleItem < firstVisibleItem) {
 //					Log.e(getClass().toString(), "scrolling down");
 //					getSupportActionBar().hide();
 
-				} else if (mLastVisibleItemCount < visibleItemCount) {
+                } else if (mLastVisibleItemCount < visibleItemCount) {
 //					Log.e(getClass().toString(), "scrolling down");
 //					getSupportActionBar().hide();
-				} else if (mLastVisibleItemCount > visibleItemCount) {
+                } else if (mLastVisibleItemCount > visibleItemCount) {
 //					Log.e(getClass().toString(), "scrolling up");
 //					getSupportActionBar().show();
-				}
-				mLastFirstVisibleItem = firstVisibleItem;
-				mLastVisibleItemCount = visibleItemCount;
-			}
+                }
+                mLastFirstVisibleItem = firstVisibleItem;
+                mLastVisibleItemCount = visibleItemCount;
+            }
 
-			public void onScrollStateChanged(AbsListView listView, int scrollState) {
-			}
-		});
+            public void onScrollStateChanged(AbsListView listView, int scrollState) {
+            }
+        });
 
-	}
+    }
 
-	@Override
-	protected void onResume() {
-		System.out.println("home resume");
-		super.onResume();
-	}
-	
+    @Override
+    protected void onResume() {
+        System.out.println("home resume");
+        super.onResume();
+    }
+
 }

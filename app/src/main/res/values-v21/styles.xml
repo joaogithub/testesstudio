@@ -1,14 +1,21 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!--
-        Base application theme for API 14+. This theme completely replaces
+        Base application theme for API 21+. This theme completely replaces
         AppBaseTheme from BOTH res/values/styles.xml and
-        res/values-v11/styles.xml on API 14+ devices.
+        res/values-v11/styles.xml on API 21+ devices.
+
     -->
     <style name="AppBaseTheme" parent="Theme.AppCompat.Light">
         <item name="homeAsUpIndicator">@drawable/custom_nav_drawer</item>
         <item name="android:actionBarStyle">@style/action_bar_style</item>
-        <!-- API 14 theme customizations can go here. -->
+        <!--   theme UI controls like checkboxes and text fields -->
+        <item name="android:colorAccent">@color/blue</item>
+        <!--   darker variant for the status bar and contextual app bars -->
+        <item name="android:colorPrimaryDark">@color/dark_blue</item>
+        <!--   your app branding color for the app bar -->
+        <item name="android:colorPrimary">@color/light_blue</item>
+        <!-- API 21 theme customizations can go here. -->
     </style>
 
     <style name="action_bar_style" parent="android:Widget.Holo.ActionBar">

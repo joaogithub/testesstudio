@@ -1,18 +1,5 @@
 package com.testes.activity;
 
-import java.io.File;
-import java.io.IOException;
-import java.lang.ref.WeakReference;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Random;
-
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
-
 import android.annotation.SuppressLint;
 import android.app.ActivityManager;
 import android.app.AlertDialog;
@@ -23,39 +10,33 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences.Editor;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
-import android.opengl.GLSurfaceView;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.BitmapFactory.Options;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.StateListDrawable;
 import android.hardware.usb.UsbDevice;
 import android.hardware.usb.UsbManager;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnInfoListener;
 import android.media.MediaRecorder;
-import android.net.Uri;
 import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.Handler;
 import android.os.Parcelable;
 import android.os.Vibrator;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.view.ActionMode;
 import android.telephony.CellInfo;
 import android.telephony.CellInfoGsm;
 import android.telephony.CellInfoWcdma;
 import android.telephony.CellLocation;
-import android.telephony.CellSignalStrength;
 import android.telephony.CellSignalStrengthGsm;
 import android.telephony.CellSignalStrengthWcdma;
 import android.telephony.PhoneStateListener;
@@ -84,7 +65,6 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdActivity;
 import com.google.android.gms.analytics.Tracker;
 import com.testes.android.R;
 import com.testes.data.Cow;
@@ -97,6 +77,19 @@ import com.timwe.mcoin.interfaces.OnInitResult;
 import com.timwe.mcoin.model.PricePoint;
 import com.timwe.mcoin.sdk.MCoin;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+
+import java.io.File;
+import java.io.IOException;
+import java.lang.ref.WeakReference;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Random;
+
 public class FirstActivity extends ActionBarActivity implements ActionMode.Callback, NavigationDrawerCallbacks {
     TextView text1;
     EditText linkEditText, e2;
@@ -106,7 +99,7 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
             webViewButton, videoViewButton, viewPagerButton, spinnerButton, alarmsButton, jsonButton, slidingMenuButton;
     Button drawerButton, drawerLayoutButton, cardViewButton, volleyButton, textAnimationButton, permissionsButton,
             adButton, fragmentsButton, sensorButton, toggleButtonActivity, drawableButton, ttSpeechButton,
-            canvasButton, pickerButton, seekBarButton, editTextButton, recyclerButton;
+            canvasButton, pickerButton, seekBarButton, editTextButton, recyclerButton, coordinatorButton, appBarLayoutBtn;
     Context c = this;
     ImageButton facebookLoginButton;
     ScrollView scrollViewLayout;
@@ -153,10 +146,12 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
         slidingMenuButton = (Button) findViewById(R.id.slidingMenuButton);
         toggleButtonActivity = (Button) findViewById(R.id.toggleButton);
         adButton = (Button) findViewById(R.id.adButton);
+        appBarLayoutBtn = (Button) findViewById(R.id.appBarLayoutBtn);
         centerButton = (Button) findViewById(R.id.centerButton);
         recyclerButton = (Button) findViewById(R.id.recyclerBtn);
         connectbutton = (Button) findViewById(R.id.connect);
         picassoButton = (Button) findViewById(R.id.picassoButton);
+        coordinatorButton = (Button) findViewById(R.id.coordinatorButton);
         jsonButton = (Button) findViewById(R.id.jsonButton);
         imageButton = (Button) findViewById(R.id.imageButton);
         Button accordionButton = (Button) findViewById(R.id.accordionButton);
@@ -257,6 +252,15 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
             }
         });
 
+        coordinatorButton.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(FirstActivity.this, CoordinatorActivity.class));
+            }
+        });
+
         cardViewButton.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -317,8 +321,8 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
         });
 
         //	 change the titlebar color
-        //		getActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.background_action_bar));
-        //		getActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.border));
+        //getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.background_action_bar));
+        //getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.drawable.border));
         //		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //		getSupportActionBar().setHomeButtonEnabled(true);
         //		getSupportActionBar().setDisplayShowCustomEnabled(true);
@@ -339,7 +343,7 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
             registerReceiver(wifiReciever, new IntentFilter(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION));
 
         boolean wifiScanSuccedded = wifi.startScan();
-        Log.i(TAG, "succedded" + wifiScanSuccedded);
+        Log.i(TAG, "succeeded" + wifiScanSuccedded);
         //			if (i==99){
         //				Toast.makeText(getBaseContext(), "Scan Finish", Toast.LENGTH_LONG).show();
         //			}
@@ -417,12 +421,12 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
                 mcoin.init("31331389", "231231231", new OnInitResult() {
                     @Override
                     public void onSuccess(List<PricePoint> list) {
-                        Snackbar.make(imageButton, "success "+ list, Snackbar.LENGTH_SHORT).show();
+                        Snackbar.make(imageButton, "success " + list, Snackbar.LENGTH_SHORT).show();
                     }
 
                     @Override
                     public void onFailure(int i, String s) {
-                        Snackbar.make(imageButton, "error "+ s, Snackbar.LENGTH_SHORT).show();
+                        Snackbar.make(imageButton, "error " + s, Snackbar.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -560,7 +564,8 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
 
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(FirstActivity.this, ListViewActivity.class));
+                startActivity(new Intent(FirstActivity.this, ImageAndTextActivity.class));
+                //startActivity(new Intent(FirstActivity.this, ListViewActivity.class));
                 //				startActivity(new Intent(FirstActivity.this, HorizontalListViewActivity.class));
             }
         });
@@ -582,13 +587,19 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
             }
         });
 
+        appBarLayoutBtn.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(FirstActivity.this, AppBarLayoutActivity.class));
+            }
+        });
+
         recyclerButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(FirstActivity.this, RecyclerActivity.class));
             }
         });
-
         textAnimationButton.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -705,7 +716,7 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
         tManager.listen(pListener, PhoneStateListener.LISTEN_SIGNAL_STRENGTHS);
 
         TelephonyManager telephonyManager = (TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE);
-        if(Build.VERSION.SDK_INT <= 22) {
+        if (Build.VERSION.SDK_INT <= 22) {
             List<CellInfo> cellList = telephonyManager.getAllCellInfo();
             CellInfoWcdma cellinfoWcdma = null;
             CellInfoGsm cellinfoGsm = null;
@@ -1061,10 +1072,10 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
         double sec = 10.2;
         double bestMSec = 11.92;
         double bestSec = 11.2;
-        Editor editor = getSharedPreferences("PREFS_NAME", Context.MODE_WORLD_WRITEABLE).edit();
+        Editor editor = getSharedPreferences("PREFS_NAME", Context.MODE_PRIVATE).edit();
         if (sec < bestSec) {
-            getSharedPreferences("PREFS_NAME", Context.MODE_WORLD_WRITEABLE);
-            getSharedPreferences("PREFS_NAME", Context.MODE_WORLD_WRITEABLE);
+            getSharedPreferences("PREFS_NAME", Context.MODE_PRIVATE);
+            getSharedPreferences("PREFS_NAME", Context.MODE_PRIVATE);
             if (mSec < 10) {
                 editor.putString("best", sec + "." + "0" + mSec);
             } else {
@@ -1075,7 +1086,7 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
             editor.commit();
         } else if (sec == bestSec) {
             if (mSec < bestMSec) {
-                getSharedPreferences("PREFS_NAME", MODE_WORLD_WRITEABLE);
+                getSharedPreferences("PREFS_NAME", MODE_PRIVATE);
 
                 if (mSec < 10) {
                     editor.putString("best", sec + "." + "0" + mSec);
@@ -1088,7 +1099,9 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
         }
 
         AudioManager audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
-        audioManager.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
+        if (Build.VERSION.SDK_INT <= 23) {
+            audioManager.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
+        }
         audioManager.setParameters("key1=value1;key2=value2;");
 
         MediaPlayer mediaPlayer = new MediaPlayer();
@@ -1107,28 +1120,31 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
         ////		android.hardware.Camera mCamera = Camera.open();
         ////		mCamera.unlock();
         ////		recorder.setCamera(mCamera);
-        recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-        String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/audiotest.3gp";
-        if (path == null)
-            return;
-        ////		recorder.setVideoSource(MediaRecorder.VideoSource.CAMERA);
-        recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-        ////		recorder.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
-        recorder.setOutputFile(path);
-        recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+        if (getPackageManager().hasSystemFeature(PackageManager.FEATURE_MICROPHONE)) {
+            recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
 
-        //		recorder.setMaxDuration(300000);
+            String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/audiotest.3gp";
+            if (path == null)
+                return;
+            ////		recorder.setVideoSource(MediaRecorder.VideoSource.CAMERA);
+            recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+            ////		recorder.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
+            recorder.setOutputFile(path);
+            recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
 
-        try {
-            recorder.prepare();
+            //		recorder.setMaxDuration(300000);
 
-        } catch (IllegalStateException ie) {
-            ie.printStackTrace();
-        } catch (IOException e) {
-            Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
+            try {
+                recorder.prepare();
+
+            } catch (IllegalStateException ie) {
+                ie.printStackTrace();
+            } catch (IOException e) {
+                Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
+            }
+            //				recorder.start();
+
         }
-        //				recorder.start();
-
         MediaPlayer p = new MediaPlayer();
         //	    final MediaRecorder recorder = new MediaRecorder();
         //	    recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
@@ -1205,24 +1221,24 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
 
         @Override
         protected void onPreExecute() {
-            			if (showDialog){
-            //				loadingDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            //				loadingDialog.setContentView(R.layout.layout_load);
-            //				loadingDialog.setOnCancelListener(new OnCancelListener() {
-            //
-            //					@Override
-            //					public void onCancel(DialogInterface dialog) {
-            //						cancel(true);
-            //					}
-            //				});
-            //				loadingDialog.getWindow().setLayout(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-            //				loadingDialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-            //				//_loadingDialog.getWindow().setWindowAnimations(R.style.dialog_animation_fade);
-            //				loadingDialog.show();
-            			}
-            			if(showError){
-            				Toast.makeText(context, "errorConnectingToServer", Toast.LENGTH_LONG).show();
-            			}
+            if (showDialog) {
+                //				loadingDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                //				loadingDialog.setContentView(R.layout.layout_load);
+                //				loadingDialog.setOnCancelListener(new OnCancelListener() {
+                //
+                //					@Override
+                //					public void onCancel(DialogInterface dialog) {
+                //						cancel(true);
+                //					}
+                //				});
+                //				loadingDialog.getWindow().setLayout(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+                //				loadingDialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+                //				//_loadingDialog.getWindow().setWindowAnimations(R.style.dialog_animation_fade);
+                //				loadingDialog.show();
+            }
+            if (showError) {
+                Toast.makeText(context, "errorConnectingToServer", Toast.LENGTH_LONG).show();
+            }
         }
 
         @Override
@@ -1356,21 +1372,21 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
         protected void onPostExecute(Bitmap result) {
             super.onPostExecute(result);
 
-            			// User canceled
-            			if (showDialog){
-            				if (!loadingDialog.isShowing()){
-            //					System.out.println("cancelou o parsing");
-            //					return;
-            				}
-            			}
+            // User canceled
+            if (showDialog) {
+                if (!loadingDialog.isShowing()) {
+                    //					System.out.println("cancelou o parsing");
+                    //					return;
+                }
+            }
 
             //			imageView.setImageBitmap(result);
             // Dismiss loading dialog
-            			if (showDialog){
-            				if (loadingDialog.isShowing()) {
-            //					loadingDialog.dismiss();
-            				}
-            			}
+            if (showDialog) {
+                if (loadingDialog.isShowing()) {
+                    //					loadingDialog.dismiss();
+                }
+            }
 
 
         }

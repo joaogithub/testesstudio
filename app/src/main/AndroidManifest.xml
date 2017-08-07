@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="com.testes.android"
     android:versionCode="1"
     android:versionName="1.0">
@@ -17,6 +16,7 @@
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.READ_CALENDAR" />
@@ -58,8 +58,8 @@
         </activity>
         <activity
             android:name="com.testes.activity.FirstActivity"
-            android:theme="@style/AppTheme"
-            android:configChanges="orientation|keyboardHidden|screenSize">
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
             </intent-filter>
@@ -85,20 +85,25 @@
         <activity android:name="com.testes.activity.PicassoActivity" />
         <activity android:name="com.testes.activity.AdsActivity" />
         <activity android:name="com.testes.activity.SlidingActivity" />
-        <activity android:name="com.testes.activity.AccordionActivity"/>
+        <activity android:name="com.testes.activity.AccordionActivity" />
         <activity android:name="com.testes.activity.DownloadActivity" />
         <activity android:name="com.testes.activity.VideoViewActivity" />
         <activity android:name="com.testes.activity.AgendaDetailActivity" />
         <activity android:name="com.testes.activity.RecyclerActivity" />
         <activity android:name="com.testes.activity.ImageActivity" />
+        <activity android:name="com.testes.activity.ImageAndTextActivity" />
         <activity android:name="com.testes.activity.CardActivity" />
         <activity android:name="com.testes.activity.TabHostActivity" />
-        <activity android:name="com.testes.activity.ToolBarActivity" />
-        <activity android:name="com.testes.activity.PermissionActivity" >
-        </activity>
+        <activity
+            android:name="com.testes.activity.ToolBarActivity"
+            android:theme="@style/AppBaseTheme.NoActionBar" />
+        <activity android:name="com.testes.activity.PermissionActivity"></activity>
         <activity android:name="com.testes.activity.ToggleButtonActivity" />
         <activity android:name="com.testes.activity.VolleyActivity" />
         <activity android:name="com.testes.activity.AnimationActivity" />
+        <activity
+            android:name="com.testes.activity.AppBarLayoutActivity"
+            android:theme="@style/AppBaseTheme.NoActionBar" />
         <activity android:name="com.testes.activity.CenterActivity" />
         <activity android:name="com.testes.activity.TextViewAnimationActivity" />
         <activity android:name="com.testes.activity.CanvasActivity" />
@@ -121,6 +126,9 @@
         <activity
             android:name="com.testes.activity.DrawerLayoutActivity"
             android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.testes.activity.CoordinatorActivity"
+            android:theme="@style/AppBaseTheme.NoActionBar" />
         <activity android:name="com.testes.activity.ListViewActivity" />
         <activity android:name="com.testes.activity.HorizontalListViewActivity" />
         <activity android:name="com.testes.activity.SecondActivity" />
@@ -134,7 +142,7 @@
         <activity android:name="com.testes.activity.TabsActivity" />
         <activity
             android:name="com.testes.activity.GridViewActivity"
-            android:theme="@style/HomeTheme" />
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name="com.testes.activity.ViewPagerActivity" />
         <activity android:name="com.testes.activity.WebViewActivity" />
         <!-- Receive Wi-Fi connection state changes -->

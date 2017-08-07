@@ -3,6 +3,7 @@ package com.testes.activity;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.text.format.Time;
 import android.view.View;
 import android.widget.DatePicker;
@@ -14,7 +15,7 @@ import android.widget.TextView;
 
 import com.testes.android.R;
 
-public class PickerActivity extends ActionBarActivity{
+public class PickerActivity extends AppCompatActivity {
 
 	String buttonText= "";
 	ImageView startImage;

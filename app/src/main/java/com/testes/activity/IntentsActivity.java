@@ -1,12 +1,5 @@
 package com.testes.activity;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ContentResolver;
@@ -20,7 +13,6 @@ import android.media.ExifInterface;
 import android.media.RingtoneManager;
 import android.media.ThumbnailUtils;
 import android.net.Uri;
-import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -35,10 +27,16 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.testes.android.R;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 public class IntentsActivity extends ActionBarActivity {
 
@@ -294,15 +292,12 @@ public class IntentsActivity extends ActionBarActivity {
 
                 // GPS coordinates
 
-                // String CURRENT_LOCATION = "37.967775, 23.720689";
-                // String DESTINATION_LOCATION = "37.925942, 23.938683";
-                //
-                // Intent intent = new
-                // Intent(android.content.Intent.ACTION_VIEW,
-                // Uri.parse("http://maps.google.com/maps?saddr="+
-                // CURRENT_LOCATION +"&daddr="+CURRENT_LOCATION)); //Added
-                // ampersand
-                // startActivity(intent);
+                String CURRENT_LOCATION = "37.967775, 23.720689";
+                String DESTINATION_LOCATION = "37.925942, 23.938683";
+                //Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                Uri.parse("http://maps.google.com/maps?saddr=" +
+                        CURRENT_LOCATION + "&daddr=" + CURRENT_LOCATION); //Added ampersand
+                //startActivity(intent);
 
                 // String DESTINATION_LOCATION = "37.925942,  23.938683";
 
@@ -521,7 +516,7 @@ public class IntentsActivity extends ActionBarActivity {
                     ex.printStackTrace();
                 }
             } else if (Uri.fromFile(file) != null) {
-                    startImage.setImageURI(Uri.fromFile(file));
+                startImage.setImageURI(Uri.fromFile(file));
             }
         } else if (requestCode == PICK_REQUEST_CODE
                 && resultCode == Activity.RESULT_OK) {

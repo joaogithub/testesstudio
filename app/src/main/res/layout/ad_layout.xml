@@ -1,23 +1,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal" >
+    android:orientation="vertical"
+    android:weightSum="1">
 
     <ListView
         android:id="@+id/listGroups"
         android:layout_width="fill_parent"
         android:layout_height="50dp"
-        android:background="@color/darkpink" >
-    </ListView>
+        android:background="@color/darkpink" />
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
-        android:layout_width="320px"
-        android:layout_height="50px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         ads:adSize="BANNER"
-        ads:adUnitId="@string/banner_ad_unit_id" >
-    </com.google.android.gms.ads.AdView>
+        ads:adUnitId="@string/banner_ad_unit_id" />
 
 </LinearLayout>
