@@ -44,7 +44,7 @@ public class PermissionActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.permission_activity);
 
-        permissionsButton = (Button) findViewById(R.id.permissionButton);
+        permissionsButton = findViewById(R.id.permissionButton);
 
         permissionsButton.setOnClickListener(new View.OnClickListener() {
             @Override

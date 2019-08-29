@@ -49,7 +49,7 @@ public class AgendaDetailActivity extends Activity implements TextToSpeech.OnIni
 
 
         tts = new TextToSpeech(this, this);
-        btnspeak = (Button) findViewById(R.id.volume);
+        btnspeak = findViewById(R.id.volume);
         //buttontest = (Button) findViewById(R.id.volume);
 
         btnspeak.setOnClickListener(new View.OnClickListener() {

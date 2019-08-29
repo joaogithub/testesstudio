@@ -26,7 +26,7 @@ public class RecyclerActivity extends AppCompatActivity {
 
         setContentView(R.layout.recycler_activity);
 
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.recyclerView);
 
         recyclerView.setHasFixedSize(true);
 

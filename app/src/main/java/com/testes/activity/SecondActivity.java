@@ -111,7 +111,7 @@ public class SecondActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         }
 
-        imageView = (ImageView) findViewById(R.id.drawer_icon);
+        imageView = findViewById(R.id.drawer_icon);
 
         imageView.setOnClickListener(new OnClickListener() {
 
@@ -122,8 +122,8 @@ public class SecondActivity extends AppCompatActivity {
             }
         });
 
-        contactsButton = (Button) findViewById(R.id.contacts);
-        Button popupButton = (Button) findViewById(R.id.popup);
+        contactsButton = findViewById(R.id.contacts);
+        Button popupButton = findViewById(R.id.popup);
 
         bluetoothadapt = BluetoothAdapter.getDefaultAdapter();
         if (bluetoothadapt == null) {
