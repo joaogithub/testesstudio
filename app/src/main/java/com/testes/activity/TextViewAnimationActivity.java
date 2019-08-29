@@ -2,7 +2,7 @@ package com.testes.activity;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.testes.android.R;
 
-public class TextViewAnimationActivity extends ActionBarActivity{
+public class TextViewAnimationActivity extends AppCompatActivity{
 
 	private TextView story_txt;
 	private Animation animationSlideDownIn;

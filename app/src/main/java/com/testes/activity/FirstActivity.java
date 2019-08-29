@@ -1,5 +1,6 @@
 package com.testes.activity;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.ActivityManager;
 import android.app.AlertDialog;
@@ -29,10 +30,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Parcelable;
 import android.os.Vibrator;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.view.ActionMode;
 import android.telephony.CellInfo;
 import android.telephony.CellInfoGsm;
 import android.telephony.CellInfoWcdma;
@@ -65,7 +62,12 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.ActionMode;
+import androidx.core.app.ActivityCompat;
+
 import com.google.android.gms.analytics.Tracker;
+import com.google.android.material.snackbar.Snackbar;
 import com.testes.android.R;
 import com.testes.data.Cow;
 import com.testes.data.Phone;
@@ -90,7 +92,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
-public class FirstActivity extends ActionBarActivity implements ActionMode.Callback, NavigationDrawerCallbacks {
+public class FirstActivity extends AppCompatActivity implements ActionMode.Callback, NavigationDrawerCallbacks {
     TextView text1;
     EditText linkEditText, e2;
     Button dialogButton, sub, circleTestButton, centerButton, imageButton, picassoButton, intentsButton,
@@ -177,7 +179,7 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
         drawerButton = (Button) findViewById(R.id.fullImage);
         textAnimationButton = (Button) findViewById(R.id.textAnimationButton);
         facebookLoginButton = (ImageButton) findViewById(R.id.facebokLoginButton);
-        intentsButton = (Button) findViewById(R.id.intentsButton);
+        intentsButton = findViewById(R.id.intentsButton);
         circleTestButton = (Button) findViewById(R.id.testViewButton);
         drawerRelativeLayout = (RelativeLayout) findViewById(R.id.drawer_layout);
         createTemFiles = (Button) findViewById(R.id.createTempFilesButton);
@@ -237,7 +239,7 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
         button.setId(2000);
         final AlertDialog myDialog = new AlertDialog.Builder(FirstActivity.this)
                 .setMessage("errorConnectingToServer")
-        /*.setView(new Button(c))*/.setCancelable(true).create();
+                /*.setView(new Button(c))*/.setCancelable(true).create();
         //		TextView textView = (TextView) myDialog.findViewById(android.R.id.message);
         //		textView.setTextSize(40);
         //		myDialog.show();
@@ -331,7 +333,7 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
 
         //		showEditAlert(listener)
 
-        WifiManager wifi = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+        WifiManager wifi = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
 
         if (wifi.isWifiEnabled() == false) {
             wifi.setWifiEnabled(true);
@@ -686,27 +688,27 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
             }
         });
 
-        		drawableButton.setOnClickListener(new OnClickListener() {
+        drawableButton.setOnClickListener(new OnClickListener() {
 
-        			@Override
-        			public void onClick(View v) {
-                        Bundle bundle =  new Bundle();
-        				Intent scrollIntent = new Intent(FirstActivity.this, DrawableActivity.class);
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                Intent scrollIntent = new Intent(FirstActivity.this, DrawableActivity.class);
 
-        				startActivity(scrollIntent);
+                startActivity(scrollIntent);
 
-        			}
-        		});
+            }
+        });
 
-       // drawableButton.setOnLongClickListener(new OnLongClickListener() {
+        // drawableButton.setOnLongClickListener(new OnLongClickListener() {
 
-           // @Override
+        // @Override
         // public boolean onLongClick(View v) {
         //    isVoiceButtonHeld = true;
         //    startRecording();
         //     return false;
         // }
-       // });
+        // });
 
         TelephonyManager tManager;
         SignalStrengthListener pListener = new SignalStrengthListener();
@@ -717,6 +719,16 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
 
         TelephonyManager telephonyManager = (TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE);
         if (Build.VERSION.SDK_INT <= 22) {
+            if (checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                // TODO: Consider calling
+                //    Activity#requestPermissions
+                // here to request the missing permissions, and then overriding
+                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                //                                          int[] grantResults)
+                // to handle the case where the user grants the permission. See the documentation
+                // for Activity#requestPermissions for more details.
+                return;
+            }
             List<CellInfo> cellList = telephonyManager.getAllCellInfo();
             CellInfoWcdma cellinfoWcdma = null;
             CellInfoGsm cellinfoGsm = null;
@@ -1121,29 +1133,37 @@ public class FirstActivity extends ActionBarActivity implements ActionMode.Callb
         ////		mCamera.unlock();
         ////		recorder.setCamera(mCamera);
         if (getPackageManager().hasSystemFeature(PackageManager.FEATURE_MICROPHONE)) {
-            recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
 
-            String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/audiotest.3gp";
-            if (path == null)
-                return;
-            ////		recorder.setVideoSource(MediaRecorder.VideoSource.CAMERA);
-            recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-            ////		recorder.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
-            recorder.setOutputFile(path);
-            recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
 
-            //		recorder.setMaxDuration(300000);
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO},
+                        23);
 
-            try {
-                recorder.prepare();
+            } else {
 
-            } catch (IllegalStateException ie) {
-                ie.printStackTrace();
-            } catch (IOException e) {
-                Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
+                recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+
+                String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/audiotest.3gp";
+                if (path == null)
+                    return;
+                ////		recorder.setVideoSource(MediaRecorder.VideoSource.CAMERA);
+                recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+                ////		recorder.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
+                recorder.setOutputFile(path);
+                recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+
+                //		recorder.setMaxDuration(300000);
+
+                try {
+                    recorder.prepare();
+
+                } catch (IllegalStateException ie) {
+                    ie.printStackTrace();
+                } catch (IOException e) {
+                    Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
+                }
+                //				recorder.start();
             }
-            //				recorder.start();
-
         }
         MediaPlayer p = new MediaPlayer();
         //	    final MediaRecorder recorder = new MediaRecorder();

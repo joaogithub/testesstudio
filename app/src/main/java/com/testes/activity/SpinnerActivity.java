@@ -5,8 +5,6 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.StateListDrawable;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
@@ -17,13 +15,16 @@ import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.testes.android.R;
 import com.testes.widgets.CustomSpinner;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
 
-public class SpinnerActivity extends ActionBarActivity implements android.support.v7.app.ActionBar.OnNavigationListener {
+public class SpinnerActivity extends AppCompatActivity implements ActionBar.OnNavigationListener {
 
     CustomSpinner regionSpinner;
     Spinner districtSpinner, equipmentSelectorSpinner;

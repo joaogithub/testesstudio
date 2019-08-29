@@ -1,7 +1,6 @@
 package com.testes.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -9,6 +8,8 @@ import android.view.Window;
 import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.GridView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.testes.adapter.TestGridAdapter;
 import com.testes.android.R;

@@ -7,11 +7,6 @@ import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBar.Tab;
-import android.support.v7.app.ActionBar.TabListener;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -19,6 +14,10 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.testes.android.R;
 
@@ -85,20 +84,20 @@ public class ButtonsActivity extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-        ActionBar.TabListener listener = new TabListener() {
+        ActionBar.TabListener listener = new ActionBar.TabListener() {
 
             @Override
-            public void onTabUnselected(Tab arg0, FragmentTransaction arg1) {
+            public void onTabUnselected(ActionBar.Tab arg0, FragmentTransaction arg1) {
 
             }
 
             @Override
-            public void onTabSelected(Tab arg0, FragmentTransaction arg1) {
+            public void onTabSelected(ActionBar.Tab arg0, FragmentTransaction arg1) {
 
             }
 
             @Override
-            public void onTabReselected(Tab arg0, FragmentTransaction arg1) {
+            public void onTabReselected(ActionBar.Tab arg0, FragmentTransaction arg1) {
 
             }
         };
@@ -127,7 +126,7 @@ public class ButtonsActivity extends AppCompatActivity {
         params.gravity = Gravity.LEFT;
         msg.setLayoutParams(params);
         msg.setGravity(Gravity.CENTER);
-        RelativeLayout chat = (RelativeLayout) findViewById(R.id.rootRelativeLayout);
+        RelativeLayout chat = findViewById(R.id.rootRelativeLayout);
         chat.addView(msg);
     }
 
@@ -143,7 +142,7 @@ public class ButtonsActivity extends AppCompatActivity {
         params.gravity = Gravity.RIGHT;
         msg.setLayoutParams(params);
         msg.setGravity(Gravity.CENTER);
-        RelativeLayout chat = (RelativeLayout) findViewById(R.id.rootRelativeLayout);
+        RelativeLayout chat = findViewById(R.id.rootRelativeLayout);
         chat.addView(msg);
     }
 

@@ -1,21 +1,22 @@
 package com.testes.activity;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Intent;
+import android.net.ParseException;
+import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.testes.android.R;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.content.Intent;
-import android.net.ParseException;
-import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
-
-import com.testes.android.R;
-
-public class AlarmsActivity extends ActionBarActivity {
+public class AlarmsActivity extends AppCompatActivity {
 
     private String buttonText = "";
     private long timeInMs;

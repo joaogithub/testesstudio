@@ -2,8 +2,6 @@ package com.testes.activity;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.AlertDialog;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -14,9 +12,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.testes.android.R;
 
-public class EditTextActivity extends ActionBarActivity {
+public class EditTextActivity extends AppCompatActivity {
 
     String buttonText = "";
     private EditText numberEdit, doubleEdit, mailEdit;
@@ -48,16 +49,14 @@ public class EditTextActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 String email = mailEdit.getText().toString();
-                if(email.length() != 0) {
+                if (email.length() != 0) {
                     if (isValidEmail(email)) {
                         Toast.makeText(getApplicationContext(), "valid email address", Toast.LENGTH_SHORT).show();
-                    }
-                    else{
+                    } else {
                         mailEdit.setError("Email required!");
                         showAlertValidation();
                     }
-                }
-                else{
+                } else {
                     mailEdit.setError("Email required!");
                 }
             }

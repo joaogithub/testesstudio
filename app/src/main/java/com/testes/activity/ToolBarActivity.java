@@ -1,8 +1,6 @@
 package com.testes.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,6 +9,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.testes.adapter.Adap;
@@ -33,12 +34,12 @@ public class ToolBarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_toolbar);
-        lv_listname = (ListView) findViewById(R.id.listView);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
+        lv_listname = findViewById(R.id.listView);
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_menu);
 
-        searchview = (MaterialSearchView) findViewById(R.id.searchview);
+        searchview = findViewById(R.id.searchview);
 
         al_names = new ArrayList<>();
    /* altype = new ArrayList<>();
@@ -80,7 +81,7 @@ public class ToolBarActivity extends AppCompatActivity {
 
             @Override
             public void onSearchViewClosed() {
-                 lv_listname.clearTextFilter();
+                lv_listname.clearTextFilter();
                 Toast.makeText(getApplicationContext(), "closed ", Toast.LENGTH_LONG).show();
                 toolbar.setVisibility(View.VISIBLE);
 

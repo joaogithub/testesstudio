@@ -2,12 +2,13 @@ package com.testes.activity;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.testes.adapter.AdapterSwipe;
 import com.testes.android.R;
@@ -54,12 +55,12 @@ public class RecyclerActivity extends AppCompatActivity {
             @Override
             public float getSwipeEscapeVelocity(float defaultValue) {
 
-                return super.getSwipeEscapeVelocity(defaultValue*20);
+                return super.getSwipeEscapeVelocity(defaultValue * 20);
             }
 
             @Override
             public float getSwipeVelocityThreshold(float defaultValue) {
-                return super.getSwipeVelocityThreshold(defaultValue*10);
+                return super.getSwipeVelocityThreshold(defaultValue * 10);
             }
 
             @Override

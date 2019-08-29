@@ -1,14 +1,14 @@
 package com.testes.activity;
 
+import android.os.Bundle;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+
 import com.testes.android.R;
 import com.testes.fragment.FragmentTabsFragmentSupport;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-
-public class TabHostActivity extends FragmentActivity{
+public class TabHostActivity extends FragmentActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

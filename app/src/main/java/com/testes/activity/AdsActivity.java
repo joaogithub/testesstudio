@@ -1,7 +1,8 @@
 package com.testes.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -17,7 +18,7 @@ public class AdsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ad_layout);
 
-        adView = (AdView) findViewById(R.id.adView);
+        adView = findViewById(R.id.adView);
 
         adView.loadAd(new AdRequest.Builder().addTestDevice("9C57FCFBA091241875A13AE42672038F").build());
 

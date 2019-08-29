@@ -20,7 +20,7 @@ import android.os.Bundle;
 import android.provider.CalendarContract;
 import android.provider.CalendarContract.Attendees;
 import android.provider.CalendarContract.Instances;
-import android.support.v7.app.ActionBarActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -36,7 +36,7 @@ import com.echonest.api.v4.EchoNestException;
 import com.echonest.api.v4.Track;
 import com.testes.android.R;
 
-public class ImageActivity extends ActionBarActivity{
+public class ImageActivity extends AppCompatActivity{
 
 	String buttonText= "";
 	static final String TAG = "ImageActivity";

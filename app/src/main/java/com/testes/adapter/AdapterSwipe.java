@@ -5,12 +5,13 @@ package com.testes.adapter;
  */
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.testes.android.R;
 
@@ -32,12 +33,12 @@ public class AdapterSwipe extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     public AdapterSwipe(Context context) {
 
         mContext = context;
-        mIncludedCategories = new ArrayList<String>( Arrays.asList(mContext.getResources().getStringArray(R.array.included)));
+        mIncludedCategories = new ArrayList<String>(Arrays.asList(mContext.getResources().getStringArray(R.array.included)));
 
     }
 
-    public ArrayList<String> getItems(){
-       return mIncludedCategories;
+    public ArrayList<String> getItems() {
+        return mIncludedCategories;
     }
 
     @Override
@@ -61,7 +62,7 @@ public class AdapterSwipe extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     @Override
     public int getItemCount() {
 
-        if(mIncludedCategories != null) {
+        if (mIncludedCategories != null) {
             return mIncludedCategories.size();
         }
         return 0;
@@ -74,7 +75,7 @@ public class AdapterSwipe extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
         public IncludedViewHolder(View view) {
             super(view);
-            mIncludedText = (TextView)view.findViewById(android.R.id.text1);
+            mIncludedText = (TextView) view.findViewById(android.R.id.text1);
         }
     }
 }

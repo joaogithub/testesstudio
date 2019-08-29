@@ -2,8 +2,6 @@ package com.testes.activity;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.text.format.Time;
 import android.view.View;
 import android.widget.DatePicker;
@@ -13,75 +11,75 @@ import android.widget.LinearLayout;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.testes.android.R;
 
 public class PickerActivity extends AppCompatActivity {
 
-	String buttonText= "";
-	ImageView startImage;
-	EditText numberEdit;
-	TextView angleText;
-	View line;
-	private LinearLayout numberPicker;
+    String buttonText = "";
+    ImageView startImage;
+    EditText numberEdit;
+    TextView angleText;
+    View line;
+    private LinearLayout numberPicker;
 
-	float degreesSoItIsParallelToTheGround=0f;
-	String phoneRotationDegrees="";
+    float degreesSoItIsParallelToTheGround = 0f;
+    String phoneRotationDegrees = "";
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-		setContentView(R.layout.activity_pickers);
+        setContentView(R.layout.activity_pickers);
 
-		String [] degreesValues = new String [20];
+        String[] degreesValues = new String[20];
 
-		for(int i= 0;i<20;i++){
-			degreesValues[i] = String.valueOf(i)+ (char) 0x00B0;
-		}
+        for (int i = 0; i < 20; i++) {
+            degreesValues[i] = String.valueOf(i) + (char) 0x00B0;
+        }
 
-		if(Build.VERSION.SDK_INT>10)
-			numberPicker = (NumberPicker) findViewById(R.id.numberPicker);
-		else
-			numberPicker = (LinearLayout) findViewById(R.id.numberPicker);
+        if (Build.VERSION.SDK_INT > 10)
+            numberPicker = (NumberPicker) findViewById(R.id.numberPicker);
+        else
+            numberPicker = (LinearLayout) findViewById(R.id.numberPicker);
 //		picker.setMinValue(0);
 //		picker.setMaxValue(19);
 //		picker.setDisplayedValues(degreesValues);
-		
-		int year = 2014;
-		int month = 6;
-		int day = 27;
 
-		DatePicker datePicker = (DatePicker) findViewById(R.id.datePicker);
-		 
+        int year = 2014;
+        int month = 6;
+        int day = 27;
+
+        DatePicker datePicker = (DatePicker) findViewById(R.id.datePicker);
+
 //		Calendar calendar = Calendar.getInstance();
 //		calendar.set(year, month, day);
-		Time time = new Time();
-		time.set(day, month, year);
-		
+        Time time = new Time();
+        time.set(day, month, year);
+
 //		datePicker.updateDate(0, 0, 0);
 //		datePicker.setMinDate(calendar.getTimeInMillis()-1000);
 //		datePicker.setMinDate(time.toMillis(true)-1000);
-		
-		numberEdit = (EditText) findViewById(R.id.somenumberEditText);
-		numberEdit.requestFocus();
-	}
+
+        numberEdit = (EditText) findViewById(R.id.somenumberEditText);
+        numberEdit.requestFocus();
+    }
 
 
+    @Override
+    protected void onPause() {
 
-	@Override
-	protected void onPause() {
+        super.onPause();
 
-		super.onPause();
+    }
 
-	}
+    @Override
+    protected void onResume() {
 
-	@Override
-	protected void onResume() {
+        super.onResume();
 
-		super.onResume();
-
-	}
-
+    }
 
 
 //You can do it by setting a Calendar with the values from the Intent, and inside onDateSet() callback, compare that Calendar with another Calendar with the input values from the user,like this:
@@ -107,7 +105,6 @@ public class PickerActivity extends AppCompatActivity {
 //               //show a message to user or something
 //        }
 //     }
-
 
 
 }

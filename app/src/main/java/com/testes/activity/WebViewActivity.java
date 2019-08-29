@@ -6,7 +6,7 @@ import com.testes.android.R.layout;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +19,7 @@ import android.webkit.WebViewClient;
 import android.webkit.WebSettings.RenderPriority;
 import android.widget.ProgressBar;
 
-public class WebViewActivity extends ActionBarActivity{
+public class WebViewActivity extends AppCompatActivity{
 
 	private WebView webview;
 	private String _newUrl;

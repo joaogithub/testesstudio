@@ -6,7 +6,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import com.testes.android.R;
 
-public class SensorActivity extends ActionBarActivity{
+public class SensorActivity extends AppCompatActivity{
 
 	String buttonText= "";
 	ImageView startImage;

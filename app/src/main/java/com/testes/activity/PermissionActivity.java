@@ -11,13 +11,14 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+import com.google.android.material.snackbar.Snackbar;
 import com.testes.android.R;
 
 /**
@@ -61,6 +62,7 @@ public class PermissionActivity extends Activity {
     /**
      * requests a set of permissions
      * shows rationale if it needs to
+     *
      * @param permissions the permissions array
      * @param requestCode the request code
      * @param explanation the rationale explanation
@@ -100,6 +102,7 @@ public class PermissionActivity extends Activity {
     /**
      * checks if the app needs to request the permissions or not
      * requests them if it needs to
+     *
      * @param permissions the permisisons to request
      * @param requestCode the request code
      * @param explanation the explanation - rationale

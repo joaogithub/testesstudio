@@ -26,4 +26,5 @@
     <string name="cordinator">Coordinator</string>
     <string name="appbar_layout">AppBarLayout</string>
     <string name="toolbar_title">Toolbar Title</string>
+    <string name="accept">Aceitar</string>
 </resources>

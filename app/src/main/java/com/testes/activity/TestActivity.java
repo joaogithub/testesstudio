@@ -26,7 +26,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -43,7 +43,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.testes.android.R;
 
-public class TestActivity extends ActionBarActivity{
+public class TestActivity extends AppCompatActivity{
 
 	private int select1;
 	private TextView col1, brewingTextView;

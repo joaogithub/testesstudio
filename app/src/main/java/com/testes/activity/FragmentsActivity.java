@@ -7,11 +7,6 @@ import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.text.Spanned;
 import android.util.Log;
@@ -30,6 +25,11 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.gms.maps.GoogleMap.OnMapLoadedCallback;
 import com.google.android.gms.maps.MapFragment;
@@ -219,11 +219,11 @@ public class FragmentsActivity extends AppCompatActivity implements OnMapLoadedC
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            myView = (TextView) rootView.findViewById(R.id.textView1);
+            myView = rootView.findViewById(R.id.textView1);
 
             setRetainInstance(true);
 
-            ((ActionBarActivity) getActivity()).getSupportActionBar().setIcon(R.drawable.icn_seta_preto);
+            ((AppCompatActivity) getActivity()).getSupportActionBar().setIcon(R.drawable.icn_seta_preto);
 
             FragmentsActivity activity = (FragmentsActivity) getActivity();
             fragPerson = activity.getPerson();

@@ -1,7 +1,5 @@
 package com.testes.activity;
 
-import java.util.Calendar;
-
 import android.app.ActionBar.LayoutParams;
 import android.app.Activity;
 import android.content.Intent;
@@ -13,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 
 import com.testes.android.R;
+
+import java.util.Calendar;
 
 public class SplashActivity extends Activity {
 
@@ -31,6 +31,14 @@ public class SplashActivity extends Activity {
 //		startActivity(myAct);
 //		finish();
 
+//        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+//            @Override
+//            public void onInitializationComplete(InitializationStatus initializationStatus) {
+//                Log.i(TAG, "inir");
+//            }
+//        });
+
+
         ImageView imageView = new ImageView(this);
         imageView.setId(132131311);
         imageView.setBackgroundResource(R.drawable.ball);
@@ -38,6 +46,7 @@ public class SplashActivity extends Activity {
         imageView.setScaleType(ScaleType.CENTER);
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         params.gravity = Gravity.CENTER;
+
         addContentView(imageView, params);
 
         Calendar cal = Calendar.getInstance();
@@ -49,20 +58,24 @@ public class SplashActivity extends Activity {
         i = 4;
         Log.i("Splash reference:", "" + c);
 
-        new Thread() {
-            public void run() {
-                try {
-                    Thread.sleep(2000);
+        new
 
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                Log.i(getClass().getSimpleName(), "sleeped");
-                startActivity(myAct);
-                finish();
-            }
+                Thread() {
+                    public void run() {
+                        try {
+                            Thread.sleep(2000);
 
-        }.start();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        Log.i(getClass().getSimpleName(), "sleeped");
+                        startActivity(myAct);
+                        finish();
+                    }
+
+                }.
+
+                start();
 
     }
 }

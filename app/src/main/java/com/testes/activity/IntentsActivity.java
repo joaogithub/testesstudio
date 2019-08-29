@@ -1,9 +1,11 @@
 package com.testes.activity;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -20,7 +22,6 @@ import android.provider.Contacts.Phones;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.provider.Settings;
-import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.SurfaceView;
 import android.view.View;
@@ -28,6 +29,8 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.testes.android.R;
 
@@ -38,7 +41,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class IntentsActivity extends ActionBarActivity {
+public class IntentsActivity extends AppCompatActivity {
 
     String buttonText = "";
     ImageView startImage;
@@ -52,6 +55,8 @@ public class IntentsActivity extends ActionBarActivity {
     private static final int PICK_REQUEST_CODE = 100;
     private static final int CALL_REQUEST_CODE = 200;
     private static final int CAPTURE_REQUEST_CODE = 1000;
+    // Request code for READ_CONTACTS. It can be any number > 0.
+    private static final int PERMISSIONS_REQUEST_READ_CONTACTS = 300;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -362,27 +367,34 @@ public class IntentsActivity extends ActionBarActivity {
                 Uri.encode(incomingNumber));
         Toast.makeText(this, incomingNumber, Toast.LENGTH_LONG).show();
         String name = null;
-        Cursor cursor = getContentResolver()
-                .query(uri,
-                        new String[]{ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME},
-                        null, null, null);
-        Toast.makeText(this, "unknown", Toast.LENGTH_LONG).show();
-        // Invoke endCall()
-        if (cursor != null && cursor.moveToFirst()) {
 
-            // editor1.putBoolean("fromcontacts", true);
-            // editor1.putBoolean("notfromcontacts", false);
-            // editor1.putString("incomingnumbername", cursor.getString(0));
-            // editor1.commit();
-            // Toast.makeText(this, p.getString("incomingnumbername",
-            // "unknown"), Toast.LENGTH_LONG).show();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(new String[]{Manifest.permission.READ_CONTACTS}, PERMISSIONS_REQUEST_READ_CONTACTS);
+            //After this point you wait for callback in onRequestPermissionsResult(int, String[], int[]) overriden method
         } else {
-            // editor1.putBoolean("notfromcontacts", true);
-            // editor1.putBoolean("fromcontacts", false);
-            // editor1.putString("incomingnumbername", "Unknown");
-            // editor1.commit();
-            Toast.makeText(this, "incomingnumbername", Toast.LENGTH_LONG)
-                    .show();
+
+            Cursor cursor = getContentResolver()
+                    .query(uri,
+                            new String[]{ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME},
+                            null, null, null);
+            Toast.makeText(this, "unknown", Toast.LENGTH_LONG).show();
+            // Invoke endCall()
+            if (cursor != null && cursor.moveToFirst()) {
+
+                // editor1.putBoolean("fromcontacts", true);
+                // editor1.putBoolean("notfromcontacts", false);
+                // editor1.putString("incomingnumbername", cursor.getString(0));
+                // editor1.commit();
+                // Toast.makeText(this, p.getString("incomingnumbername",
+                // "unknown"), Toast.LENGTH_LONG).show();
+            } else {
+                // editor1.putBoolean("notfromcontacts", true);
+                // editor1.putBoolean("fromcontacts", false);
+                // editor1.putString("incomingnumbername", "Unknown");
+                // editor1.commit();
+                Toast.makeText(this, "incomingnumbername", Toast.LENGTH_LONG)
+                        .show();
+            }
         }
     }
 

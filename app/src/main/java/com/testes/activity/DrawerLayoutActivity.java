@@ -14,11 +14,6 @@ import android.graphics.Point;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v4.app.ActionBarDrawerToggle;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -28,11 +23,16 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
+
 import com.testes.adapter.DrawerItemAdapter;
 import com.testes.android.R;
 import com.testes.interfaces.NavigationDrawerCallbacks;
 
-public class DrawerLayoutActivity extends ActionBarActivity implements NavigationDrawerCallbacks{
+public class DrawerLayoutActivity extends AppCompatActivity implements NavigationDrawerCallbacks{
 
 	private ImageView _imageView;
 	private ListView mDrawerListView;
@@ -84,11 +84,11 @@ public class DrawerLayoutActivity extends ActionBarActivity implements Navigatio
 		//	int position = i.getExtras().getInt("id");
 		//ArrayAdapter imageAdapter = new ArrayAdapter(this);
 
-		_imageView = (ImageView) findViewById(R.id.profileImage);
+		_imageView = findViewById(R.id.profileImage);
 
 		Bitmap bitmap = ((BitmapDrawable)_imageView.getDrawable()).getBitmap();
 
-		mDrawerListView = (ListView) findViewById(R.id.left_drawer);
+		mDrawerListView = findViewById(R.id.left_drawer);
 
 		mDrawerListView.setAdapter(new DrawerItemAdapter(getSupportActionBar().getThemedContext(),
 				R.layout.drawer_item, new String[] { "Main Activity", "First Activity",
@@ -112,7 +112,7 @@ public class DrawerLayoutActivity extends ActionBarActivity implements Navigatio
 
 		Calendar testCalendar = Calendar.getInstance();
 		testCalendar.setFirstDayOfWeek(Calendar.SUNDAY);
-		Log.e("DrawerLayoutActivity - WEEEK TEST:", ""+ testCalendar.get(Calendar.WEEK_OF_YEAR) + " "+ testCalendar.getFirstDayOfWeek());
+		Log.e("DrawerActivity TEST:", ""+ testCalendar.get(Calendar.WEEK_OF_YEAR) + " "+ testCalendar.getFirstDayOfWeek());
 		testCalendar.add(Calendar.WEEK_OF_YEAR, 1);
 		Log.e("WEEEK TEST:", ""+ testCalendar.get(Calendar.WEEK_OF_YEAR));
 
@@ -224,7 +224,7 @@ public class DrawerLayoutActivity extends ActionBarActivity implements Navigatio
 	{
 		try
 		{
-			mCallbacks = (NavigationDrawerCallbacks) DrawerLayoutActivity.this;
+			mCallbacks = DrawerLayoutActivity.this;
 		}
 		catch (ClassCastException e)
 		{
@@ -281,7 +281,8 @@ public class DrawerLayoutActivity extends ActionBarActivity implements Navigatio
 		// between the navigation drawer and the action bar app icon.
 		mDrawerToggle = new ActionBarDrawerToggle(this, /* host Activity */
 				mDrawerLayout, /* DrawerLayout object */
-				R.drawable.custom_nav_drawer, /* nav drawer image to replace 'Up' caret */
+				null,
+				//R.drawable.custom_nav_drawer, /* nav drawer image to replace 'Up' caret */
 				R.string.ok, /* "open drawer" description for accessibility */
 				R.string.abc_action_bar_up_description /* "close drawer" description for accessibility */
 				)

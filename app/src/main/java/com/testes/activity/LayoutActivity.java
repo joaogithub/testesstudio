@@ -1,13 +1,13 @@
 package com.testes.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.LinearLayout;
 
 import com.testes.android.R;
 
-public class LayoutActivity extends ActionBarActivity {
+public class LayoutActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
