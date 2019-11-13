@@ -226,11 +226,11 @@ public class SecondActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        home = (Button) findViewById(R.id.home_btn);
-        mybooks = (Button) findViewById(R.id.mybooks_btn);
+        home = findViewById(R.id.home_btn);
+        mybooks = findViewById(R.id.mybooks_btn);
         //		contact=(Button)findViewById(R.id.contact_btn);
-        about = (Button) findViewById(R.id.about_btn);
-        inputSearch = (EditText) findViewById(R.id.timeEdit);
+        about = findViewById(R.id.about_btn);
+        inputSearch = findViewById(R.id.timeEdit);
         //	lv=(ListView)findViewById(R.id.bookList);
 
         String a = "Mão";

@@ -95,6 +95,7 @@
         <activity android:name="com.testes.activity.AgendaDetailActivity" />
         <activity android:name="com.testes.activity.RecyclerActivity" />
         <activity android:name="com.testes.activity.ImageActivity" />
+        <activity android:name="com.testes.activity.LottieActivity" />
         <activity android:name="com.testes.activity.ImageAndTextActivity" />
         <activity android:name="com.testes.activity.CardActivity" />
         <activity android:name="com.testes.activity.TabHostActivity" />

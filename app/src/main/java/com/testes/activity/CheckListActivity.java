@@ -48,7 +48,7 @@ public class CheckListActivity extends ListActivity{
 			ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.layout_exam_list_item, R.id.examTitle, presidents);
 			listview.setAdapter(adapter);
 
-			radioGroup1 = (RadioGroup) findViewById(R.id.radioGroup1);
+			radioGroup1 = findViewById(R.id.radioGroup1);
 			
 		}
 

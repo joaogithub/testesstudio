@@ -95,13 +95,14 @@ import java.util.Random;
 public class FirstActivity extends AppCompatActivity implements ActionMode.Callback, NavigationDrawerCallbacks {
     TextView text1;
     EditText linkEditText, e2;
-    Button dialogButton, sub, circleTestButton, centerButton, imageButton, picassoButton, intentsButton,
+    Button dialogButton, lottie, circleTestButton, centerButton, imageButton, picassoButton, intentsButton,
             connectbutton, animationActivityButton, mainActivityButton, secondButton, scrollViewButton, tableLayoutButton, tabHostButton;
     Button listViewButton, layoutButton, horizontalListViewButton, downloadButton, createTemFiles,
             webViewButton, videoViewButton, viewPagerButton, spinnerButton, alarmsButton, jsonButton, slidingMenuButton;
     Button drawerButton, drawerLayoutButton, cardViewButton, volleyButton, textAnimationButton, permissionsButton,
             adButton, fragmentsButton, sensorButton, toggleButtonActivity, drawableButton, ttSpeechButton,
             canvasButton, pickerButton, seekBarButton, editTextButton, recyclerButton, coordinatorButton, appBarLayoutBtn;
+    Button rxJavaBtn;
     Context c = this;
     ImageButton facebookLoginButton;
     ScrollView scrollViewLayout;
@@ -139,34 +140,36 @@ public class FirstActivity extends AppCompatActivity implements ActionMode.Callb
 
         setContentView(R.layout.layout_main_activity);
 
-        linkEditText = (EditText) findViewById(R.id.myEditText);
-        dialogButton = (Button) findViewById(R.id.add);
-        drawableButton = (Button) findViewById(R.id.drawableButton);
-        secondButton = (Button) findViewById(R.id.secondButton);
+        linkEditText = findViewById(R.id.myEditText);
+        dialogButton = findViewById(R.id.add);
+        lottie = findViewById(R.id.lottie);
+        rxJavaBtn = findViewById(R.id.lottie);
+        drawableButton = findViewById(R.id.drawableButton);
+        secondButton = findViewById(R.id.secondButton);
         webViewButton = findViewById(R.id.webViewButton);
-        volleyButton = (Button) findViewById(R.id.volleyButton);
-        slidingMenuButton = (Button) findViewById(R.id.slidingMenuButton);
-        toggleButtonActivity = (Button) findViewById(R.id.toggleButton);
-        adButton = (Button) findViewById(R.id.adButton);
-        appBarLayoutBtn = (Button) findViewById(R.id.appBarLayoutBtn);
-        centerButton = (Button) findViewById(R.id.centerButton);
-        recyclerButton = (Button) findViewById(R.id.recyclerBtn);
-        connectbutton = (Button) findViewById(R.id.connect);
-        picassoButton = (Button) findViewById(R.id.picassoButton);
-        coordinatorButton = (Button) findViewById(R.id.coordinatorButton);
-        jsonButton = (Button) findViewById(R.id.jsonButton);
-        imageButton = (Button) findViewById(R.id.imageButton);
-        Button accordionButton = (Button) findViewById(R.id.accordionButton);
-        editTextButton = (Button) findViewById(R.id.editTextButton);
-        layoutButton = (Button) findViewById(R.id.layoutButton);
-        horizontalListViewButton = (Button) findViewById(R.id.horizontalListViewButton);
+        volleyButton = findViewById(R.id.volleyButton);
+        slidingMenuButton = findViewById(R.id.slidingMenuButton);
+        toggleButtonActivity = findViewById(R.id.toggleButton);
+        adButton = findViewById(R.id.adButton);
+        appBarLayoutBtn = findViewById(R.id.appBarLayoutBtn);
+        centerButton = findViewById(R.id.centerButton);
+        recyclerButton = findViewById(R.id.recyclerBtn);
+        connectbutton = findViewById(R.id.connect);
+        picassoButton = findViewById(R.id.picassoButton);
+        coordinatorButton = findViewById(R.id.coordinatorButton);
+        jsonButton = findViewById(R.id.jsonButton);
+        imageButton = findViewById(R.id.imageButton);
+        Button accordionButton = findViewById(R.id.accordionButton);
+        editTextButton = findViewById(R.id.editTextButton);
+        layoutButton = findViewById(R.id.layoutButton);
+        horizontalListViewButton = findViewById(R.id.horizontalListViewButton);
         sensorButton = findViewById(R.id.sensorButton);
         cardViewButton = findViewById(R.id.cardViewButton);
         permissionsButton = findViewById(R.id.permissionButton);
         videoViewButton = findViewById(R.id.videoViewButton);
         canvasButton = findViewById(R.id.canvasButton);
         seekBarButton = findViewById(R.id.seekBarButton);
-        animationActivityButton = (Button) findViewById(R.id.animationButton);
+        animationActivityButton = findViewById(R.id.animationButton);
         pickerButton = findViewById(R.id.pickersButton);
         ttSpeechButton = findViewById(R.id.ttSpeechButton);
         alarmsButton = findViewById(R.id.alarmManagerButton);
@@ -186,8 +189,8 @@ public class FirstActivity extends AppCompatActivity implements ActionMode.Callb
         viewPagerButton = findViewById(R.id.viewPagerActivityButton);
         spinnerButton = findViewById(R.id.spinnerButton);
         text1 = findViewById(R.id.changingtext);
-        tableLayoutButton = (Button) findViewById(R.id.tableButton);
-        scrollViewButton = (Button) findViewById(R.id.scrollViewButton);
+        tableLayoutButton = findViewById(R.id.tableButton);
+        scrollViewButton = findViewById(R.id.scrollViewButton);
         tabHostButton = (Button) findViewById(R.id.tabsHostButton);
         listViewButton = (Button) findViewById(R.id.listViewButton);
 
@@ -251,6 +254,20 @@ public class FirstActivity extends AppCompatActivity implements ActionMode.Callb
                 Log.i(TAG, "Clicked ok dialog");
                 myDialog.dismiss();
 
+            }
+        });
+
+        lottie.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(FirstActivity.this, LottieActivity.class));
+            }
+        });
+
+        rxJavaBtn.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(FirstActivity.this, RXJavaActivity.class));
             }
         });
 
@@ -1042,7 +1059,7 @@ public class FirstActivity extends AppCompatActivity implements ActionMode.Callb
             public void onClick(View v) {
                 Intent webviewIntent = new Intent(FirstActivity.this, WebViewActivity.class);
 
-                webviewIntent.putExtra("webview", "http://www.ustream.tv/embed/679978?v=3&wmode=direct"/*"http://www.google.com"*/);
+                webviewIntent.putExtra("webview", "http://10.106.62.122:3000"/*"http://www.google.com"*/);
 
                 startActivity(webviewIntent);
 

@@ -30,6 +30,26 @@
             android:layout_above="@+id/add"
             android:layout_centerInParent="true" />
 
+        <Button
+            android:id="@+id/lottie"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="lottie"
+            android:layout_alignParentEnd="true"
+            android:layout_height="wrap_content">
+
+        </Button>
+
+        <Button
+            android:id="@+id/rxjava"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="RxJava"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content">
+
+        </Button>
+
         <EditText
             android:id="@+id/myEditText"
             android:layout_width="wrap_content"
